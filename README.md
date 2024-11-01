@@ -1,36 +1,127 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# HRBox Africa Website
+
+## Company: HRBOX Africa
+### Tagline: Everything HR / Your People, Our Priority / We Know People
+
+Welcome to the **HRBox Africa** website project, built with Next.js 15. This project focuses on providing a seamless and professional platform to showcase HRBox Africa's expertise and services in HR management.
+
+---
+
+## Table of Contents
+
+- [About HRBox Africa](#about-hrbox-africa)
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Development Server](#running-the-development-server)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+---
+
+## About HRBox Africa
+
+**HRBox Africa** is dedicated to helping organizations manage their most valuable asset—**their people**. With the tagline **"Everything HR / Your People, Our Priority / We Know People"**, we offer a wide range of HR services tailored to meet the needs of businesses across Africa.
+
+## Project Overview
+
+This website project is developed to provide an intuitive, high-performance platform for showcasing HRBox Africa's services, insights, and resources. Utilizing **Next.js 15**, the site offers a responsive and modern user experience with optimized performance.
+
+## Features
+
+- **Dynamic Routing** for seamless navigation
+- **SEO Optimization** for enhanced visibility
+- **Responsive Design** that adapts to various devices
+- **High Performance** using Next.js 15 capabilities
+- **Optimized Static and Dynamic Content** rendering
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Ensure you have the following installed:
+
+- **Node.js** (version 16 or higher)
+- **npm** or **yarn** as your package manager
+
+### Installation
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/yourusername/hrbox-africa-website.git
+   ```
+
+2. Navigate to the project directory:
+   ```bash
+   cd hrbox-africa-website
+   ```
+
+3. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+### Running the Development Server
+
+1. Start the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+2. Open [http://localhost:3000](http://localhost:3000) in your browser to view the site.
+
+## Project Structure
+
+```
+hrbox-africa-website/
+├── components/           # Reusable UI components
+├── pages/               # Next.js pages and API routes
+├── public/             # Static assets
+├── styles/             # Global styles and CSS modules
+├── lib/                # Utility functions and helpers
+├── config/             # Configuration files
+├── types/              # TypeScript type definitions
+└── tests/              # Test files
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contributing
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+We welcome contributions to improve the HRBox Africa website. Please follow these steps:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/improvement`)
+3. Make your changes
+4. Commit your changes (`git commit -m 'Add new feature'`)
+5. Push to the branch (`git push origin feature/improvement`)
+6. Create a Pull Request
 
-## Learn More
+### Development Guidelines
 
-To learn more about Next.js, take a look at the following resources:
+- Follow the established coding style and conventions
+- Write meaningful commit messages
+- Update documentation as needed
+- Add appropriate tests for new features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
-## Deploy on Vercel
+## Contact
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+For any questions or concerns regarding the website, please contact:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Email**: contact@hrboxafrica.com
+- **Website**: [www.hrboxafrica.com](https://www.hrboxafrica.com)
+- **LinkedIn**: [HRBox Africa](https://www.linkedin.com/company/hrbox-africa)
+
+---
+
+Built with ❤️ by the HRBox Africa team
