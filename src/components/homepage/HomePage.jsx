@@ -10,6 +10,10 @@ import {
   PerformanceIllustration 
 } from '@/lib/illustrations';
 import DiscoverFeaturesSection from './DiscoverFeaturesSection';
+import PlatformHrSection from './PlatformHrSection';
+import HROutsourcingBanner from './HROutsourcingBanner';
+import PromotionalBanner from './PromotionalBanner';
+import FAQSection from './FAQSection';
 
 // First section features
 const coreFeatures = [
@@ -83,21 +87,41 @@ const additionalFeatures = [
 const HomePage = () => {
   return (
     <main>
-      <HeroSection />
+      <HeroSection
+       title="One Platform, All Your HR Needs"
+       subtitle="Everything you need to manage your team, all in one place."
+      />
       
+      <PlatformHrSection />
+
+      <HROutsourcingBanner />
+
+      <PromotionalBanner 
+        title="Ready to Transform your Workforce?"
+        description="Streamline processes, empower your team, and drive growth with HRBOX Africa."
+        ctaButtons={[
+          { text: "Book a Demo", variant: "light" },
+          { text: "Get Started Today →", variant: "dark" }
+        ]}
+        imageSrc = "/assets/homepage/workforce.webp"
+        imageAlt = "Team celebrating together in office"
+      />
+
+      <FAQSection />
+
       {/* First features section - original layout */}
-      <DiscoverFeaturesSection 
+      {/* <DiscoverFeaturesSection 
         features={coreFeatures}
         headerTitle="Discover All Our Features"
         headerSubtitle="Empower Your Team, Elevate Your Success."
-      />
+      /> */}
       
       {/* Second features section - reversed layout, no header */}
-      <DiscoverFeaturesSection
+      {/* <DiscoverFeaturesSection
         features={additionalFeatures}
         reversed={true}
         showHeader={false}
-      />
+      /> */}
     </main>
   );
 };

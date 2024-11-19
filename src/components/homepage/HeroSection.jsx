@@ -44,29 +44,38 @@ const HeroSection = () => {
       </section>
     );
   }
-
+// gradient bg-gradient-primary
   return (
-    <section className="w-full min-h-screen bg-gradient-primary dark:bg-neutral-500 pt-20">
+    <section className="w-full min-h-screen  dark:bg-neutral-500 pt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-12 md:pb-16">
         <div className="flex flex-col items-center text-center space-y-8">
           {/* Hero Text Content */}
           <div className="max-w-3xl space-y-6">
             <H1 className="text-4xl md:text-h1 font-normal leading-[111%] text-neutral-500 dark:text-white tracking-normal">
-              HR Solutions to{' '}
-              <span className="block">Power Your Business</span>
+              Empower your people{' '}
+              <span className="block">to do excellent work</span>
             </H1>
             
             <p className="text-lg md:text-[1.75rem] font-normal text-neutral-400 dark:text-neutral-200">
-              Empower your people to do excellent work
+            Effortless HR Solutions for Growing Businesses Across Africa
             </p>
-
-            <Button 
-              size="lg"
-              className="bg-primary-dark text-lg font-semibold hover:bg-primary-light text-white dark:bg-primary-light dark:hover:bg-primary transition-colors"
-            >
-              Get Started with Core HR
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+            
+            <div className='flex flex-col md:flex-row items-center justify-center gap-3'>
+              <Button 
+                size="lg"
+                className="bg-[#BAE8FF] text-lg font-semibold hover:bg-primary-light text-[#123059] dark:bg-primary-light dark:hover:bg-primary transition-colors"
+              >
+                Book a Demo 
+              </Button>
+              <Button 
+                size="lg"
+                className="bg-primary-dark text-lg font-semibold hover:bg-primary-light text-white dark:bg-primary-light dark:hover:bg-primary transition-colors"
+              >
+                Get Started Today
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </div>
+           
           </div>
 
           {/* Hero Image */}
@@ -74,7 +83,7 @@ const HeroSection = () => {
             <div className="aspect-video rounded-[3.5rem] border-8 border-primary dark:border-primary-light overflow-hidden bg-neutral-200 dark:bg-neutral-400">
               <div className="w-full h-full flex items-center justify-center">
                 <img
-                  src="/api/placeholder/800/450"
+                  src="/assets/homepage/home.webp"
                   alt="HR Management Platform Preview"
                   className="w-full h-full object-cover"
                 />

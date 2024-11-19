@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${lato.className} antialiased`}
+        className={`${lato.className} antialiased bg-[#eef9ff]`}
       >
         <Head>
           <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>

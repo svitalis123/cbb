@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Image from 'next/image';
 
 const FeatureAccordionItem = ({ feature, isOpen }) => {
   return (
@@ -73,8 +74,8 @@ const DiscoverFeaturesSection = ({
   features,
   reversed = false,
   showHeader = true,
-  headerTitle = "Discover All Our Features",
-  headerSubtitle = "Empower Your Team, Elevate Your Success.",
+  headerTitle = "One Platform, All Your HR Needss",
+  headerSubtitle = "Everything you need to manage your team, all in one place.",
   className = ""
 }) => {
   const [activeSection, setActiveSection] = useState(features[0]?.id || null);
@@ -110,7 +111,9 @@ const DiscoverFeaturesSection = ({
           feature.id === activeSection && (
             <div key={feature.id} className="w-full h-full">
               {feature.imageSrc ? (
-                <img 
+                <Image
+                  width={500}
+                  height={500} 
                   src={feature.imageSrc} 
                   alt={feature.title}
                   className="w-full h-full object-cover rounded-lg"
