@@ -14,6 +14,7 @@ import PlatformHrSection from './PlatformHrSection';
 import HROutsourcingBanner from './HROutsourcingBanner';
 import PromotionalBanner from './PromotionalBanner';
 import FAQSection from './FAQSection';
+import Footer from '../shared/Footer';
 
 // First section features
 const coreFeatures = [
@@ -109,6 +110,7 @@ const HomePage = () => {
 
       <FAQSection />
 
+      <Footer />
       {/* First features section - original layout */}
       {/* <DiscoverFeaturesSection 
         features={coreFeatures}

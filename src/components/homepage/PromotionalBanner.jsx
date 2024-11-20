@@ -27,13 +27,13 @@ const PromotionalBanner = ({
         </div>
 
         <div className="w-full md:w-1/2 space-y-6">
-          <h2 className="text-white text-5xl font-bold leading-tight">
+          <h2 className="text-white text-3xl md:text-5xl font-bold leading-tight">
             {title}
           </h2>
           <p className="text-white text-xl leading-relaxed">
             {description}
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex justify-center md:justify-start flex-wrap gap-4">
             {ctaButtons.map((button, index) => (
               <button 
                 key={index}
