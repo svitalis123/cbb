@@ -4,7 +4,7 @@ import Image from "next/image";
 // gradient  bg-gradient-primary
 export default function Home() {
   return (
-    <main className=" h-screen">
+    <main className=" h-full">
       <HomePage />
     </main>
   );

@@ -87,7 +87,7 @@ const additionalFeatures = [
 
 const HomePage = () => {
   return (
-    <main>
+    <main className=''>
       <HeroSection
        title="One Platform, All Your HR Needs"
        subtitle="Everything you need to manage your team, all in one place."
@@ -109,7 +109,6 @@ const HomePage = () => {
       />
 
       <FAQSection />
-
       <Footer />
       {/* First features section - original layout */}
       {/* <DiscoverFeaturesSection 

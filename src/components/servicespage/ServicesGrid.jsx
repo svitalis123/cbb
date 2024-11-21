@@ -1,9 +1,9 @@
 import React from 'react';
-import { Calendar, DollarSign } from 'lucide-react';
+import { Calendar, ChartBarIcon, DockIcon, DollarSign, UsersIcon } from 'lucide-react';
 
-const ServiceCard = ({ title, description, icon: Icon, bulletPoints = [] }) => {
+const ServiceCard = ({ title, description, icon: Icon, bulletPoints = [], className = '' }) => {
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-lg flex flex-col gap-4">
+    <div className={`bg-white rounded-2xl p-6 shadow-lg flex flex-col gap-4 ${className}`}>
       <div className="text-blue-600 w-12 h-12">
         {Icon}
       </div>
@@ -21,67 +21,59 @@ const ServiceCard = ({ title, description, icon: Icon, bulletPoints = [] }) => {
 };
 
 const ServicesGrid = () => {
-  const CalendarDollarIcon = () => (
-    <div className="relative">
-      <Calendar className="w-12 h-12 stroke-current" />
-      <DollarSign className="w-6 h-6 stroke-current absolute bottom-0 right-0" />
-    </div>
-  );
-
   const services = [
     {
       title: "Payroll Outsourcing",
-      description: "Let us manage your payroll complexities, so you can focus on growth. Our services ensure compliant, timely payroll processing each month.",
-      icon: <CalendarDollarIcon />
+      description: "Let us handle your payroll complexities while you focus on growing your business. Our outsourced payroll services ensure timely and compliant payroll processing every month.",
+      icon: <UsersIcon />
     },
     {
       title: "Recruitment",
-      description: "Find top talent fast. We handle job postings and interviews, streamlining your hiring process to help you build the perfect team.",
-      icon: <CalendarDollarIcon />
+      description: "Find the right talent fast. From job posting to interviews, we manage the entire recruitment process so you can focus on finding the perfect fit for your team.",
+      icon: <UsersIcon />
     },
     {
       title: "HR and Compliance Audits",
-      description: "Navigate labor laws confidently. Our audits ensure your HR practices meet regulatory standards and enhance efficiency.",
-      icon: <CalendarDollarIcon />
+      description: "We help you navigate the complexities of labor laws and regulations. Our audits ensure that your HR practices are fully compliant and efficient. ",
+      icon: <UsersIcon />
     },
     {
       title: "Staff Outsourcing",
-      description: "Access skilled professionals on demand. Our flexible staffing solutions offer short-term support without long-term commitments",
-      icon: <CalendarDollarIcon />
-    },
-    {
-      title: "HR Consulting",
-      description: "From policy development to training, our consulting services align with your business goals.",
-      icon: <CalendarDollarIcon />,
-      bulletPoints: [
-        "Policy Development: Clear, compliant HR policies.",
-        "Contract Management: Up-to-date, legally sound employee contracts.",
-        "Employee Training: Empower your workforce through comprehensive training."
-      ]
+      description: "Get access to skilled professionals without the long-term commitment. Our staff outsourcing services provide flexible, short-term staffing solutions.",
+      icon: <DockIcon />
     },
     {
       title: "Employee Surveys",
-      description: "Gauge satisfaction and engagement with custom surveys, gaining insights to strengthen workplace culture.",
-      icon: <CalendarDollarIcon />
+      description: "Measure employee satisfaction and engagement with our custom surveys. Get actionable insights to improve your workplace culture.",
+      icon: <ChartBarIcon />
+    },
+    {
+      title: "HR Consulting",
+      description: "Whether you need policy development, contract management, or employee training, our HR consulting services are tailored to your business goals.",
+      bulletPoints: [
+        "Policy Development: Create clear, compliant, and effective HR policies.",
+        "Contract Management: Ensure all employee contracts are legally sound and up-to-date.",
+        "Employee Training: Provide comprehensive training to empower your workforce."
+      ],
+      icon: <ChartBarIcon />,
+      span: true
     },
     {
       title: "Employer of Record Services",
-      description: "Expand globally without the hassle. We handle employment contracts, payroll, taxes, and compliance for your international team",
-      icon: <CalendarDollarIcon />
+      description: "Expand your business across borders without the complexity. We take care of employment contracts, payroll, taxes, and compliance on your behalf.",
+      icon: <DockIcon />
     }
   ];
 
   return (
-    <div className="bg-gray-50 py-16 px-4 md:px-8">
+    <div className="py-16 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-[repeat(auto-fill,_minmax(280px,_1fr))] lg:grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))]  gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <ServiceCard
               key={index}
-              title={service.title}
-              description={service.description}
-              icon={service.icon}
-              bulletPoints={service.bulletPoints}
+              {...service}
+              className={service.span ? 'lg:col-span-2' : ''}
             />
           ))}
         </div>
