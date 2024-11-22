@@ -15,7 +15,7 @@ const PromotionalBanner = ({
 }) => {
   return (
     <div className="max-w-[1280px] w-[98%] lg:w-[100%] mx-auto">
-      <div className="bg-gradient-to-b from-sky-300 to-sky-400 rounded-[32px] p-12 flex flex-col md:flex-row items-center gap-12">
+      <div className="bg-gradient-to-b from-sky-300 to-sky-400 rounded-[32px] p-4 flex flex-col md:flex-row items-center gap-12">
         <div className="w-full md:w-1/2">
           <div className="rounded-[24px] overflow-hidden">
             <Image
