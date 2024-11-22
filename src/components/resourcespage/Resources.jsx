@@ -3,7 +3,7 @@ import KnowledgeCenter from './KnowledgeCenter'
 
 const Resources = () => {
   return (
-    <div>
+    <div className='bg-neutral-99'>
       <KnowledgeCenter />
     </div>
   )

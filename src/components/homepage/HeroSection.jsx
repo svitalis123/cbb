@@ -51,7 +51,7 @@ const HeroSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-12 md:pb-16">
         <div className="flex flex-col items-center text-center space-y-8">
           {/* Hero Text Content */}
-          <div className="max-w-3xl space-y-6">
+          <div className="max-w-4xl space-y-5">
             <H1 className=" font-[600] leading-[111%] text-neutral-800 dark:text-white tracking-normal">
               Empower your people{' '}
               <span className="block">to do excellent work</span>
@@ -81,7 +81,7 @@ const HeroSection = () => {
 
           {/* Hero Image */}
           <div className="w-full max-w-4xl mt-12 relative">
-            <div className="aspect-video rounded-[3.5rem] border-8 border-primary dark:border-primary-light overflow-hidden bg-neutral-200 dark:bg-neutral-400">
+            <div className="aspect-video rounded-[3.5rem] dark:border-primary-light overflow-hidden bg-neutral-200 dark:bg-neutral-400">
               <div className="w-full h-full flex items-center justify-center">
                 <Image
                   width={1000}

@@ -3,7 +3,7 @@ import ImpactPrograms from './ImpactPrograms'
 
 const Impact = () => {
   return (
-    <div>
+    <div className='bg-neutral-99'>
       <ImpactPrograms />
     </div>
   )

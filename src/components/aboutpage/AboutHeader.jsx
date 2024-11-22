@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import { H1 } from '../ui/typography';
 
 const data = {
   title: "Meet HRBOX Africa:",
@@ -37,10 +38,10 @@ const IconComponent = ({ type }) => {
 const AboutHeader = () => {
   return (
     <div className="w-full max-w-6xl mx-auto p-4">
-      <h1 className="text-3xl md:text-4xl font-bold text-navy-900 text-center mb-8">
+      <H1 className=" font-[600] text-neutral-800 text-center mb-8">
         {data.title}
         <span className="block mt-2">{data.subtitle}</span>
-      </h1>
+      </H1>
       
       <div className="grid md:grid-cols-2 gap-4">
         {data.cards.map((card, index) => (
@@ -51,8 +52,8 @@ const AboutHeader = () => {
                   <IconComponent type={card.icon} />
                 </div>
                 <div>
-                  <h2 className="font-semibold text-xl mb-2">{card.title}</h2>
-                  <p className="text-gray-700">{card.content}</p>
+                  <h3 className="font-[600] text-body text-neutral-800 mb-2">{card.title}</h3>
+                  <p className="text-neutral-600 font-[400] text-bodyalpha">{card.content}</p>
                 </div>
               </div>
             </CardContent>

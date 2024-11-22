@@ -7,12 +7,12 @@ const ServiceCard = ({ title, description, icon: Icon, bulletPoints = [], classN
       <div className="text-blue-600 w-12 h-12">
         {Icon}
       </div>
-      <h3 className="text-xl font-semibold text-gray-800">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+      <h3 className="text-bodybold font-[600] text-neutral-800">{title}</h3>
+      <p className="text-neutral-600 text-bodysmal">{description}</p>
       {bulletPoints.length > 0 && (
-        <ul className="list-disc list-inside space-y-2 text-gray-600">
+        <ul className="list-disc list-inside space-y-2 text-bodysmal font-[400] text-neutral-600">
           {bulletPoints.map((point, index) => (
-            <li key={index}>{point}</li>
+            <li className='text-bodysmal text-neutral-600' key={index}>{point}</li>
           ))}
         </ul>
       )}

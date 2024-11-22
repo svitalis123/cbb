@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import {  ThumbsUp, TrendingUp, Scale, GlassWaterIcon } from 'lucide-react';
+import { H3 } from '../ui/typography';
 
 const CoreValues = () => {
   const [data] = useState({
@@ -31,11 +32,11 @@ const CoreValues = () => {
   });
 
   const ValueCard = ({ icon: Icon, title, description }) => (
-    <div className="bg-[#BAE8FF] bg-opacity-[0.2] p-6 rounded-xl shadow-md flex items-start gap-4 transform transition-transform ">
+    <div className="bg-[#BAE8FF] border-neutral-600  bg-opacity-[0.2] p-6 rounded-xl shadow-lg flex items-start gap-4 transform transition-transform ">
       <Icon className="text-blue-600 w-6 h-6 flex-shrink-0" />
       <div>
-        <h3 className="text-navy-900 font-semibold text-lg mb-2">{title}</h3>
-        <p className="text-gray-600">{description}</p>
+        <h3 className="text-neutral-800 font-[600] text-bodybold mb-2">{title}</h3>
+        <p className="text-neutral-600 font-[400] text-bodysmal">{description}</p>
       </div>
     </div>
   );
@@ -43,8 +44,8 @@ const CoreValues = () => {
   return (
     <div className="max-w-6xl bg-white rounded-[64px] mx-auto p-10 shadow-2xl">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-navy-900 mb-4">{data.title}</h1>
-        <p className="text-gray-600">{data.subtitle}</p>
+        <H3 className="text-neutral-800 font-[600] mb-4">{data.title}</H3>
+        <p className="text-bodymed text-neutral-600 font-[400]">{data.subtitle}</p>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

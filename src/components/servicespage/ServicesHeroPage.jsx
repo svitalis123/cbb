@@ -9,25 +9,24 @@ const HeroSection = () => {
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center ">
         {/* Left Content Section */}
         <div className="max-w-3xl mx-auto text-center space-y-6">
-            <H1 className="text-4xl md:text-h1 font-normal leading-[111%] text-neutral-500 dark:text-white tracking-normal">
-              Empower your people{' '}
-              <span className="block">to do excellent work</span>
+            <H1 className=" font-[600] leading-[111%] text-neutral-800 dark:text-white tracking-normal">
+              Leave HR to Us
             </H1>
             
-            <p className="text-lg md:text-[1.75rem] font-normal text-neutral-400 dark:text-neutral-200">
-            Effortless HR Solutions for Growing Businesses Across Africa
+            <p className="text-bodysmal md:text-[1.75rem] font-[400] text-neutral-600 dark:text-neutral-200">
+              Outsource the Effort, Keep the Impact
             </p>
             
             <div className='flex flex-col md:flex-row items-center justify-center gap-3'>
               <Button 
                 size="lg"
-                className="bg-[#BAE8FF] text-lg font-semibold hover:bg-primary-light text-[#123059] dark:bg-primary-light dark:hover:bg-primary transition-colors"
+                className="bg-[#BAE8FF] text-bodysmal font-[600] hover:text-neutral-99 hover:bg-primary-light text-[#123059] dark:bg-primary-light dark:hover:bg-primary transition-colors"
               >
                 Book a Demo 
               </Button>
               <Button 
                 size="lg"
-                className="bg-primary-dark text-lg font-semibold hover:bg-primary-light text-white dark:bg-primary-light dark:hover:bg-primary transition-colors"
+                className="bg-primary-dark text-bodysmal font-[600] hover:text-neutral-99 hover:bg-primary-light text-neutral-99 dark:bg-primary-light dark:hover:bg-primary transition-colors"
               >
                 Get Started Today
                 <ArrowRight className="ml-2 h-5 w-5" />

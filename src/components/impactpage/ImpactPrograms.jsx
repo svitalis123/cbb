@@ -20,12 +20,12 @@ const ImpactPrograms = () => {
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       <div className="text-center mb-12">
-        <p className="text-blue-500 text-sm font-medium mb-2">What Makes Us Special?</p>
-        <h1 className="text-[#1a2b4b] text-4xl font-bold mb-4">We Are Impact Focused.</h1>
-        <p className="text-blue-900 text-lg">5% of our revenue is channeled to our 2 impact programs</p>
+        <p className="text-[#2DAAFF] text-bodysmal font-medium mb-2">What Makes Us Special?</p>
+        <h1 className="text-neutral-800 text-body lg:text-h3 font-[600] mb-0">We Are Impact Focused.</h1>
+        <p className="text-neutral-600 font-[300] text-body leading-normal">5% of our revenue is channeled to our 2 impact programs</p>
       </div>
 
-      <div className="grid md:grid-cols-2  justify-center  gap-8">
+      <div className="grid md:grid-cols-2 justify-center gap-6 lg:gap-0">
         {programs.map((program, index) => (
           <div 
             key={index} 
@@ -41,8 +41,8 @@ const ImpactPrograms = () => {
               />
             </div>
             <div className="p-8">
-              <h2 className="text-[#1a2b4b] text-xl font-bold mb-4">{program.title}</h2>
-              <p className="text-blue-900 leading-relaxed">
+              <h2 className="text-neutral-800 text-[24px] font-[600] mb-2">{program.title}</h2>
+              <p className="text-neutral-600 font-normal text-bodysmal leading-relaxed">
                 {program.description}
               </p>
             </div>

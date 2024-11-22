@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import { Card } from '@/components/ui/card';
+import { H3 } from '../ui/typography';
 
 const ContactForm = () => {
   // Contact information data
@@ -67,16 +68,16 @@ const ContactForm = () => {
   return (
     <div className="w-full max-w-6xl mx-auto p-4">
       <div className="text-center mb-8">
-        <h1 className="text-2xl md:text-4xl font-bold text-navy-900 mb-4">{contactInfo.title}</h1>
-        <p className="text-lg text-blue-900 mb-2">{contactInfo.subtitle}</p>
-        <p className="text-lg text-blue-900">{contactInfo.callToAction}</p>
+        <H3 className="font-[600] text-neutral-800 mb-4">{contactInfo.title}</H3>
+        <p className="text-body text-neutral-600 font-[400] mb-2">{contactInfo.subtitle}</p>
+        <p className="text-body text-neutral-600 font-[400]">{contactInfo.callToAction}</p>
       </div>
 
       <Card className="w-full max-w-[1000px] mx-auto rounded-[20px] shadow-[0_2px_20px_rgba(0,0,0,0.08)] overflow-hidden">
         <div className="flex flex-col md:flex-row">
           {/* Left Section */}
           <div className="w-full md:w-[320px] bg-[#EEF9FF] p-8">
-            <h2 className="text-[#1B2559] text-xl font-bold mb-8">Contact Information</h2>
+            <h2 className="text-neutral-800 text-[24px]  font-[600] mb-8">Contact Information</h2>
             
             <div className="space-y-6">
               {contactInfo.details.map((item) => (
@@ -88,8 +89,8 @@ const ContactForm = () => {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-[#1B2559] font-semibold text-sm mb-1">{item.label}</p>
-                      <p className="text-[#2B63D9] text-sm">{item.value}</p>
+                      <p className="text-neutral-800  font-[600] text-bodybold mb-1">{item.label}</p>
+                      <p className="text-neutral-600  text-bodysmal font-[400]">{item.value}</p>
                     </div>
                   </div>
                 </div>
@@ -102,68 +103,68 @@ const ContactForm = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm text-[#1B2559] mb-2">First Name</label>
+                  <label className="block text-small font-[500] text-[#0065F2] mb-2">First Name</label>
                   <input 
                     type="text" 
                     name="firstName"
                     value={formData.firstName}
                     onChange={handleInputChange}
                     placeholder="Placeholder"
-                    className="w-full border-b-2 border-[#E2E8F0] pb-2 placeholder-[#A0AEC0] focus:outline-none focus:border-[#2B63D9] transition-colors"
+                    className="w-full border-b-2 text-bodyextr font-normal border-[#E2E8F0] pb-2 placeholder-[#A0AEC0] focus:outline-none focus:border-[#2B63D9] transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm text-[#1B2559] mb-2">Last Name</label>
+                  <label className="block text-small font-[500] text-[#0065F2] mb-2">Last Name</label>
                   <input 
                     type="text" 
                     name="lastName"
                     value={formData.lastName}
                     onChange={handleInputChange}
                     placeholder="Placeholder"
-                    className="w-full border-b-2 border-[#E2E8F0] pb-2 placeholder-[#A0AEC0] focus:outline-none focus:border-[#2B63D9] transition-colors"
+                    className="w-full border-b-2 text-bodyextr font-normal border-[#E2E8F0] pb-2 placeholder-[#A0AEC0] focus:outline-none focus:border-[#2B63D9] transition-colors"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm text-[#1B2559] mb-2">Email Address</label>
+                <label className="block text-small font-[500] text-[#0065F2] mb-2">Email Address</label>
                 <input 
                   type="email" 
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="Placeholder"
-                  className="w-full border-b-2 border-[#E2E8F0] pb-2 placeholder-[#A0AEC0] focus:outline-none focus:border-[#2B63D9] transition-colors"
+                  className="w-full border-b-2 text-bodyextr font-normal border-[#E2E8F0] pb-2 placeholder-[#A0AEC0] focus:outline-none focus:border-[#2B63D9] transition-colors"
                 />
               </div>
 
               <div>
-                <label className="block text-sm text-[#1B2559] mb-2">Your Subject</label>
+                <label className="block text-small font-[500] text-[#0065F2] mb-2">Your Subject</label>
                 <input 
                   type="text" 
                   name="subject"
                   value={formData.subject}
                   onChange={handleInputChange}
                   placeholder="Placeholder"
-                  className="w-full border-b-2 border-[#E2E8F0] pb-2 placeholder-[#A0AEC0] focus:outline-none focus:border-[#2B63D9] transition-colors"
+                  className="w-full border-b-2 text-bodyextr font-normal border-[#E2E8F0] pb-2 placeholder-[#A0AEC0] focus:outline-none focus:border-[#2B63D9] transition-colors"
                 />
               </div>
 
               <div>
-                <label className="block text-sm text-[#1B2559] mb-2">Message</label>
+                <label className="block text-small font-[500] text-[#0065F2] mb-2">Message</label>
                 <textarea 
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
                   rows={4} 
                   placeholder="Placeholder"
-                  className="w-full border-b-2 border-[#E2E8F0] pb-2 placeholder-[#A0AEC0] focus:outline-none focus:border-[#2B63D9] transition-colors resize-none"
+                  className="w-full border-b-2 border-[#E2E8F0] text-bodyextr font-normal pb-2 placeholder-[#A0AEC0] focus:outline-none focus:border-[#2B63D9] transition-colors resize-none"
                 />
               </div>
 
               <button 
                 type="submit" 
-                className="w-full bg-[#2B63D9] text-white py-3 rounded-lg hover:bg-[#2454BE] transition-colors"
+                className="w-full bg-primary-dark text-neutral-99 py-3 rounded-lg hover:bg-[#2454BE] transition-colors"
               >
                 Send Message
               </button>
