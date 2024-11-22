@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { H1 } from '../ui/typography';
+import Image from 'next/image';
 
 const HeroSkeleton = () => (
   <div className="flex flex-col items-center text-center space-y-8 animate-pulse">
@@ -51,25 +52,25 @@ const HeroSection = () => {
         <div className="flex flex-col items-center text-center space-y-8">
           {/* Hero Text Content */}
           <div className="max-w-3xl space-y-6">
-            <H1 className="text-4xl md:text-h1 font-normal leading-[111%] text-neutral-500 dark:text-white tracking-normal">
+            <H1 className=" font-[600] leading-[111%] text-neutral-800 dark:text-white tracking-normal">
               Empower your people{' '}
               <span className="block">to do excellent work</span>
             </H1>
             
-            <p className="text-lg md:text-[1.75rem] font-normal text-neutral-400 dark:text-neutral-200">
+            <p className="text-body font-[300] text-neutral-600 dark:text-neutral-200">
             Effortless HR Solutions for Growing Businesses Across Africa
             </p>
             
             <div className='flex flex-col md:flex-row items-center justify-center gap-3'>
               <Button 
                 size="lg"
-                className="bg-[#BAE8FF] text-lg font-semibold hover:bg-primary-light text-[#123059] dark:bg-primary-light dark:hover:bg-primary transition-colors"
+                className="bg-[#BAE8FF] text-bodysmal font-semibold hover:bg-primary-light text-[#123059] dark:bg-primary-light dark:hover:bg-primary transition-colors"
               >
                 Book a Demo 
               </Button>
               <Button 
                 size="lg"
-                className="bg-primary-dark text-lg font-semibold hover:bg-primary-light text-white dark:bg-primary-light dark:hover:bg-primary transition-colors"
+                className="bg-primary-dark text-bodysmal font-semibold hover:bg-primary-light text-white dark:bg-primary-light dark:hover:bg-primary transition-colors"
               >
                 Get Started Today
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -82,7 +83,9 @@ const HeroSection = () => {
           <div className="w-full max-w-4xl mt-12 relative">
             <div className="aspect-video rounded-[3.5rem] border-8 border-primary dark:border-primary-light overflow-hidden bg-neutral-200 dark:bg-neutral-400">
               <div className="w-full h-full flex items-center justify-center">
-                <img
+                <Image
+                  width={1000}
+                  height={1000}
                   src="/assets/homepage/home.webp"
                   alt="HR Management Platform Preview"
                   className="w-full h-full object-cover"

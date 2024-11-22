@@ -54,7 +54,7 @@ const Footer = () => {
               <a
                 key={link.text}
                 href={link.href}
-                className="text-white hover:text-yellow-400 transition duration-200"
+                className="text-neutral-99 font-[500] font-bodysmal hover:text-yellow-400 transition duration-200"
               >
                 {link.text}
               </a>
@@ -82,13 +82,13 @@ const Footer = () => {
       {/* Footer */}
       <footer className="bg-navy-900 p-4 mt-auto">
         <div className="max-w-7xl mx-auto text-white text-sm">
-          <div className="flex flex-col lg:flex-row gap-5 md:gap-0 justify-between items-center">
-            <p>© 2024 HR Box Africa. All right reserved.</p>
+          <div className="flex flex-col lg:flex-row gap-5 md:gap-6 justify-center items-center">
+            <p className='text-small font-[400] text-[#596e8a]'>© 2024 HR Box Africa. All right reserved.</p>
             <div className="space-x-4">
-              <a href="/privacy" className="hover:text-yellow-400 transition duration-200">
+              <a href="/privacy" className="text-[#596e8a] hover:text-yellow-400 transition duration-200">
                 Privacy Policy
               </a>
-              <a href="/terms" className="hover:text-yellow-400 transition duration-200">
+              <a href="/terms" className="text-[#596e8a] text-small font-[400] hover:text-yellow-400 transition duration-200">
                 Terms of Service
               </a>
             </div>

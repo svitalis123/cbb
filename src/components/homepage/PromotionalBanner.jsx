@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import { H3 } from '../ui/typography';
 
 const PromotionalBanner = ({ 
   title = "Ready to Transform your Workforce?",
@@ -27,20 +28,20 @@ const PromotionalBanner = ({
         </div>
 
         <div className="w-full md:w-1/2 space-y-6">
-          <h2 className="text-white text-3xl md:text-5xl font-bold leading-tight">
+          <H3 className="text-neutral-99 font-[600]  leading-tight">
             {title}
-          </h2>
-          <p className="text-white text-xl leading-relaxed">
+          </H3>
+          <p className="text-[#D8F2FF] text-bodymed font-[400] leading-relaxed">
             {description}
           </p>
           <div className="flex justify-center md:justify-start flex-wrap gap-4">
             {ctaButtons.map((button, index) => (
               <button 
                 key={index}
-                className={`px-8 py-3 rounded-lg font-medium transition-colors ${
+                className={`px-8 py-3 rounded-lg font-[500] text-bodysmal  transition-colors ${
                   button.variant === 'light' 
-                    ? 'bg-sky-100 text-sky-900 hover:bg-sky-50'
-                    : 'bg-blue-700 text-white hover:bg-blue-800'
+                    ? 'bg-neutral-700 text-neutral-800 hover:bg-sky-50'
+                    : 'bg-primary-dark text-neutral-99 hover:bg-blue-800'
                 }`}
               >
                 {button.text}

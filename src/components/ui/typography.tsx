@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils"
 
 export const H1 = ({ children, className }) => (
   <h1 className={cn(
-    "text-[4.167rem] font-normal leading-tight tracking-tight",
+    "text-h4 lg:text-h1 font-normal leading-tight tracking-tight",
     className
   )}>
     {children}
@@ -12,7 +12,7 @@ export const H1 = ({ children, className }) => (
 
 export const H2 = ({ children, className }) => (
   <h2 className={cn(
-    "text-[3.111rem] font-normal leading-tight tracking-tight",
+    "text-h5 lg:text-h2 font-normal leading-tight tracking-tight",
     className
   )}>
     {children}
@@ -21,7 +21,7 @@ export const H2 = ({ children, className }) => (
 
 export const H3 = ({ children, className }) => (
   <h3 className={cn(
-    "text-[2.333rem] font-normal leading-tight tracking-tight",
+    "text-body lg:text-h3 font-normal leading-tight tracking-tight",
     className
   )}>
     {children}
@@ -30,7 +30,7 @@ export const H3 = ({ children, className }) => (
 
 export const H4 = ({ children, className }) => (
   <h4 className={cn(
-    "text-[1.778rem] font-medium leading-tight tracking-tight",
+    "text-body lg:text-h4 font-medium leading-tight tracking-tight",
     className
   )}>
     {children}
@@ -39,7 +39,7 @@ export const H4 = ({ children, className }) => (
 
 export const H5 = ({ children, className }) => (
   <h5 className={cn(
-    "text-[1.333rem] font-medium leading-tight tracking-tight",
+    "text-h5 font-medium leading-tight tracking-tight",
     className
   )}>
     {children}
@@ -57,7 +57,7 @@ export const Quote = ({ children, className }) => (
 
 export const Subheading = ({ children, className }) => (
   <h6 className={cn(
-    "text-[1.333rem] font-medium leading-tight tracking-tight",
+    "text-body font-medium leading-tight tracking-tight",
     className
   )}>
     {children}
@@ -66,7 +66,7 @@ export const Subheading = ({ children, className }) => (
 
 export const BodyLarge = ({ children, className }) => (
   <p className={cn(
-    "text-base leading-relaxed",
+    "text-bodyalpha leading-relaxed",
     className
   )}>
     {children}
@@ -75,7 +75,7 @@ export const BodyLarge = ({ children, className }) => (
 
 export const BodySmall = ({ children, className }) => (
   <p className={cn(
-    "text-[0.778rem] leading-relaxed",
+    "text-bodysmall leading-relaxed",
     className
   )}>
     {children}
@@ -84,7 +84,7 @@ export const BodySmall = ({ children, className }) => (
 
 export const Caption = ({ children, className }) => (
   <p className={cn(
-    "text-[0.556rem] leading-relaxed",
+    "text-small leading-relaxed",
     className
   )}>
     {children}

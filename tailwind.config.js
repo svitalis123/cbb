@@ -28,11 +28,16 @@ module.exports = {
   				DEFAULT: '#F8BA40'
   			},
   			neutral: {
+					'99': '#fff',
   				'100': '#FAFAFA',
-  				'200': '#F0F0F0',
+  				'200': '#EEF9FF',
   				'300': '#D9D9D9',
   				'400': '#656565',
-  				'500': '#313131'
+  				'500': '#313131',
+					'600': '#164F92',
+					'700': '#BAE8FF',
+					'800': '#123059',
+					'900': '#2DAAFF'
   			},
   			muted: {
   				DEFAULT: 'hsl(var(--muted))',
@@ -58,14 +63,19 @@ module.exports = {
   			}
   		},
   		fontSize: {
-  			h1: '4.167rem',
-  			h2: '3.111rem',
-  			h3: '2.333rem',
-  			h4: '1.778rem',
-  			h5: '1.333rem',
+  			h1: '5rem', //80px
+  			h2: '4rem', //64px
+  			h3: '3rem', //48px
+  			h4: '2.25rem', //36px
+  			h5: '2rem', // 32px
   			quote: '1.556rem',
-  			body: '1rem',
-  			small: '0.778rem',
+  			body: '1.75rem', //28px
+				bodyalpha: '1.375rem', //22px
+				bodymed: '1.313rem', //21px
+				bodybold: '1.25rem', //20px
+				bodysmal: '1.125rem',		 //18px	
+				bodyextr: '1rem', //16px	
+  			small: '0.875rem', //14px
   			xs: '0.556rem'
   		},
   		backgroundImage: {

@@ -1,4 +1,4 @@
-import React from "react";
+  import React from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
@@ -40,7 +40,7 @@ const Header = () => {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-neutral-500 font-semibold text-lg hover:text-primary dark:text-neutral-200 dark:hover:text-white transition-colors"
+                  className="text-neutral-800 font-[500] text-bodysmal hover:text-primary dark:text-neutral-200 dark:hover:text-white transition-colors"
                 >
                   {item.label}
                 </Link>
@@ -49,11 +49,11 @@ const Header = () => {
             <div className="hidden lg:flex items-center space-x-4">
               <Button
                 variant="ghost"
-                className="text-neutral-500 font-semibold text-lg hover:text-primary dark:text-white"
+                className="text-neutral-800 bg-neutral-700 bg-opacity-[.2] font-[500] text-bodysmal hover:text-primary dark:text-white"
               >
                 Sign Up
               </Button>
-              <Button className="bg-primary-dark text-lg hover:bg-primary-light text-white">
+              <Button className="bg-primary-dark text-bodysmal hover:bg-primary-light text-neutral-99">
                 Log In
               </Button>
             </div>
@@ -72,7 +72,7 @@ const Header = () => {
                       <Link
                         key={item.label}
                         href={item.href}
-                        className="text-neutral-500 font-semibold text-lg hover:text-primary dark:text-neutral-200 dark:hover:text-white transition-colors px-4 py-2"
+                        className="text-neutral-500 font-[500] text-lg hover:text-primary dark:text-neutral-200 dark:hover:text-white transition-colors px-4 py-2"
                       >
                         {item.label}
                       </Link>
@@ -80,11 +80,11 @@ const Header = () => {
                     <div className="flex flex-col space-y-4 pt-4">
                       <Button
                         variant="ghost"
-                        className="text-neutral-500 font-semibold text-lg dark:text-white w-full"
+                        className="text-neutral-800 bg-neutral-700 font-[500] text-bodysmal dark:text-white w-full"
                       >
                         Sign Up
                       </Button>
-                      <Button className="bg-primary-dark text-lg hover:bg-primary-light text-white w-full">
+                      <Button className="bg-primary-dark text-bodysmal hover:bg-primary-light text-neutral-99 w-full">
                         Log In
                       </Button>
                     </div>
@@ -98,10 +98,10 @@ const Header = () => {
       </div>
       <section className="bg-[#D8F2FF] w-full">
           <div className="flex flex-col sm:flex-row justify-center items-center gap-2 p-4 text-center sm:text-left">
-            <span className="font-medium text-gray-800">Talk to sales:</span>
+            <span className="font-[500] text-bodysmal text-neutral-800">Talk to sales:</span>
             <a 
               href="tel:+254719262360" 
-              className="text-blue-600 hover:text-blue-800 hover:underline font-medium"
+              className="text-bodysmal text-neutral-800 hover:text-blue-800 hover:underline font-[500]"
             >
               +254 719 262 360
             </a>

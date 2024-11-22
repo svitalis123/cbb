@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
+import { H3 } from '../ui/typography';
 
 const HROutsourcingBanner = ({ 
   title = "Focus on Growth, We'll Handle the Rest",
@@ -11,16 +12,16 @@ const HROutsourcingBanner = ({
   imageAlt = "Two professionals in blue attire discussing business metrics"
 }) => {
   return (
-    <Card className="bg-white max-w-[1280px] mx-auto w-[95%] lg:w-full my-8 rounded-[64px] shadow-lg overflow-hidden">
+    <Card className="bg-neutral-99 max-w-[1280px] mx-auto w-[95%] lg:w-full my-8 rounded-[64px] shadow-lg overflow-hidden">
       <CardContent className="flex flex-col lg:flex-row justify-between items-center p-8">
         <div className="flex-1 max-w-lg">
-          <span className="text-blue-500 text-sm mb-2 block">{label}</span>
-          <h1 className="text-navy-900 text-4xl font-bold mb-2">{title}</h1>
+          <span className="text-neutral-900 text-bodysmal font-[600] mb-2 block">{label}</span>
+          <H3 className="text-neutral-800 font-[600] mb-2">{title}</H3>
           <div className="flex-1 md:hidden py-5">
             <Image src={imageSrc} width={600} height={400} alt={imageAlt} className="w-full h-auto"/>
           </div>
-          <p className="text-blue-900 mb-6">{subtitle}</p>
-          <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+          <p className="text-neutral-600 font-[400] text-bodymed mb-6">{subtitle}</p>
+          <button className="bg-primary-dark text-neutral-99 font-[500] px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
             {buttonText}
           </button>
         </div>

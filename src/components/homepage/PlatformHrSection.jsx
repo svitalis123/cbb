@@ -44,11 +44,11 @@ const FEATURES_DATA = [
 
 
 const FeatureCard = ({ title, description, icon: Icon }) => (
-  <Card className="bg-blue-50 p-6">
+  <Card className="bg-neutral-700 p-6">
     <CardContent className="p-0">
       <Icon className="h-6 w-6 text-blue-600 mb-3" />
-      <h3 className="text-navy-900 font-semibold mb-2">{title}</h3>
-      <p className="text-gray-700 text-sm">{description}</p>
+      <h3 className="text-neutral-800 font-[600] text-bodybold mb-2">{title}</h3>
+      <p className="text-neutral-600 font-[400] text-bodysmal">{description}</p>
     </CardContent>
   </Card>
 );
@@ -56,8 +56,8 @@ const FeatureCard = ({ title, description, icon: Icon }) => (
 const PlatformHrSection = ({ title, subtitle, features = FEATURES_DATA }) => (
   <div className="max-w-7xl mx-auto p-8 bg-[#fff] rounded-[64px] shadow-lg">
     <div className="text-center mb-12">
-      <h1 className="text-4xl font-bold text-navy-900 mb-4"> {title || "One Platform, All Your HR Needs"}</h1>
-      <p className="text-xl text-gray-600">{subtitle || "Everything you need to manage your team, all in one place."}</p>
+      <h2 className="text-h5 lg:text-h3 font-[600] text-neutral-800 mb-4"> {title || "One Platform, All Your HR Needs"}</h2>
+      <p className="text-bodymed font-[400] text-neutral-600">{subtitle || "Everything you need to manage your team, all in one place."}</p>
     </div>
     
     <div className="grid md:grid-cols-2 gap-8">

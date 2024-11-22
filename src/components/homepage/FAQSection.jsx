@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { H3 } from '../ui/typography';
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(0);
@@ -26,21 +27,21 @@ const FAQSection = () => {
 
   return (
     <div className="max-w-[1280px]  mx-auto p-8 my-8 bg-white rounded-[64px] shadow-lg">
-      <h2 className="text-5xl font-bold text-navy-800 mb-8 text-center">
+      <H3 className=" font-[600] text-neutral-800 mb-8 text-center">
         Frequently Asked Questions
-      </h2>
+      </H3>
       
       <div className="space-y-4">
         {faqData.map((item, index) => (
           <div 
             key={index}
-            className="bg-blue-50 rounded-lg overflow-hidden"
+            className="bg-[#EEF9FF] rounded-lg overflow-hidden"
           >
             <button
               className="w-full px-6 py-4 flex justify-between items-center text-left"
               onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
             >
-              <span className="text-navy-800 font-medium">{item.question}</span>
+              <span className="text-[#0F331C] text-bodysmal font-[600]">{item.question}</span>
               {openIndex === index ? (
                 <ChevronUp className="w-5 h-5 text-navy-800" />
               ) : (
@@ -49,7 +50,7 @@ const FAQSection = () => {
             </button>
             
             {openIndex === index && item.answer && (
-              <div className="px-6 pb-4 text-navy-800">
+              <div className="px-6 pb-4 text-bodysmal font-[400] text-neutral-600">
                 {item.answer}
               </div>
             )}
