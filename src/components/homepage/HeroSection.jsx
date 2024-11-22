@@ -81,20 +81,20 @@ const HeroSection = () => {
 
           {/* Hero Image */}
           <div className="w-full max-w-4xl mt-12 relative">
-            <div className="aspect-video rounded-[3.5rem] dark:border-primary-light overflow-hidden bg-neutral-200 dark:bg-neutral-400">
+            <div className="aspect-video overflow-hidden  bg-transparent dark:bg-transparent">
               <div className="w-full h-full flex items-center justify-center">
                 <Image
                   width={1000}
                   height={1000}
                   src="/assets/homepage/home.webp"
                   alt="HR Management Platform Preview"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
             </div>
 
             {/* Decorative Elements */}
-            <div className="absolute -z-10 inset-0 bg-gradient-to-b from-secondary/20 to-transparent dark:from-secondary/10 blur-3xl" />
+            {/* <div className="absolute -z-10 inset-0 bg-gradient-to-b from-secondary/20 to-transparent dark:from-secondary/10 blur-3xl" /> */}
           </div>
         </div>
       </div>
