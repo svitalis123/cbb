@@ -2,6 +2,7 @@ import React from 'react'
 import AboutHeader from './AboutHeader'
 import CoreValues from './CoreValues'
 import PromotionalBanner from '../homepage/PromotionalBanner'
+import ImpactPrograms from '../impactpage/ImpactPrograms'
 
 const AboutUs = () => {
   return (
@@ -12,13 +13,16 @@ const AboutUs = () => {
       <div className='bg-[#EEF9FF] py-8 lg:py-16'>
         <CoreValues />
       </div>
+      <div className='bg-[#fff] py-8'>
+        <ImpactPrograms />
+      </div>
       <div className='bg-white py-10'>
         <PromotionalBanner 
           title="Ready to Transform your Workforce?"
           description="Streamline processes, empower your team, and drive growth with HRBOX Africa."
           ctaButtons={[
             { text: "Book a Demo", variant: "light" },
-            { text: "Get Started Today →", variant: "dark" }
+            { text: "Get Started Today", variant: "dark", hasArrow: true }
           ]}
           imageSrc = "/assets/homepage/workforce.webp"
           imageAlt = "Team celebrating together in office"

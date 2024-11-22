@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import { H3 } from '../ui/typography';
+import { ChevronRight } from 'lucide-react';
 
 const PromotionalBanner = ({ 
   title = "Ready to Transform your Workforce?",
@@ -38,14 +39,14 @@ const PromotionalBanner = ({
             {ctaButtons.map((button, index) => (
               <button 
                 key={index}
-                className={`px-8 py-3 rounded-lg font-[500] text-bodysmal  transition-colors ${
+                className={`px-8 py-3 flex items-center rounded-lg font-[500] text-bodysmal  transition-colors ${
                   button.variant === 'light' 
                     ? 'bg-neutral-700 text-neutral-800 hover:bg-sky-50'
                     : 'bg-primary-dark text-neutral-99 hover:bg-blue-800'
                 }`}
               >
                 {button.text}
-                {button.hasArrow && " →"}
+                {button.hasArrow && <ChevronRight />}
               </button>
             ))}
           </div>

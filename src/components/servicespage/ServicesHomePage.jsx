@@ -13,7 +13,7 @@ const ServicesHomePage = () => {
         description="Streamline processes, empower your team, and drive growth with HRBOX Africa."
         ctaButtons={[
           { text: "Book a Demo", variant: "light" },
-          { text: "Get Started Today →", variant: "dark" }
+          { text: "Get Started Today", variant: "dark", hasArrow: true }
         ]}
         imageSrc = "/assets/homepage/workforce.webp"
         imageAlt = "Team celebrating together in office"
