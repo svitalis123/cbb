@@ -3,7 +3,7 @@ import React from 'react';
 
 const Footer = () => {
   const navLinks = [
-    { text: "Product", href: "/product" },
+    { text: "Product", href: "https://app.hrbox.africa/system/login" },
     { text: "Services", href: "/services" },
     { text: "Resources", href: "/resources" },
     { text: "About Us", href: "/about-us" },

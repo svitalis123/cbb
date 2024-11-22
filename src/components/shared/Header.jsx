@@ -8,7 +8,7 @@ import { Card } from "../ui/card";
 
 const Header = () => {
   const navItems = [
-    { label: "Product", href: "/product" },
+    { label: "Product", href: "https://app.hrbox.africa/system/login" },
     { label: "Services", href: "/services" },
     { label: "Resources", href: "/resources" },
     { label: "About Us", href: "/about-us" },
@@ -78,15 +78,16 @@ const Header = () => {
                       </Link>
                     ))}
                     <div className="flex flex-col space-y-4 pt-4">
-                      <Button
+                      <a
+                        href="https://app.hrbox.africa/system/login"
                         variant="ghost"
                         className="text-neutral-800 bg-neutral-700 font-[500] text-bodysmal dark:text-white w-full"
                       >
                         Sign Up
-                      </Button>
-                      <Button className="bg-primary-dark text-bodysmal hover:bg-primary-light text-neutral-99 w-full">
+                      </a>
+                      <a href="https://app.hrbox.africa/system/login" className="bg-primary-dark text-bodysmal hover:bg-primary-light text-neutral-99 w-full">
                         Log In
-                      </Button>
+                      </a>
                     </div>
                   </nav>
                 </SheetContent>
