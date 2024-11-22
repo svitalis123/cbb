@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { H3 } from '../ui/typography';
+import Image from 'next/image';
 
 const ContactForm = () => {
   // Contact information data
@@ -12,28 +13,19 @@ const ContactForm = () => {
     details: [
       {
         id: 'phone',
-        icon: (
-          <path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z" stroke="#2B63D9" strokeWidth="2"/>
-        ),
+        icon: '/assets/contact/calling.gif',
         label: 'Phone Number:',
         value: '+254 719 262 360'
       },
       {
         id: 'email',
-        icon: (
-          <path d="M4 8L10.5 12.5C11.3284 13.1666 12.6716 13.1666 13.5 12.5L20 8M5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19Z" stroke="#2B63D9" strokeWidth="2"/>
-        ),
+        icon: '/assets/contact/mail.gif',
         label: 'Email Address:',
         value: 'info@hrbox.com'
       },
       {
         id: 'location',
-        icon: (
-          <>
-            <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="#2B63D9" strokeWidth="2"/>
-            <path d="M12 22C16 18 20 14.4183 20 10C20 5.58172 16.4183 2 12 2C7.58172 2 4 5.58172 4 10C4 14.4183 8 18 12 22Z" stroke="#2B63D9" strokeWidth="2"/>
-          </>
-        ),
+        icon: '/assets/contact/location.gif',
         label: 'Office Location:',
         value: 'Kilimani No 51'
       }
@@ -83,13 +75,10 @@ const ContactForm = () => {
               {contactInfo.details.map((item) => (
                 <div key={item.id} className="bg-white rounded-xl p-4 shadow-sm">
                   <div className="flex flex-col items-start">
-                    <div className="w-6 h-6 mt-1">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        {item.icon}
-                      </svg>
-                    </div>
+                    <Image width={400} height={600} src={item.icon} alt={item.label} className="h-12 w-12 text-blue-600 mb-3" />
+                   
                     <div>
-                      <p className="text-neutral-800  font-[600] text-bodybold mb-1">{item.label}</p>
+                      <p className="text-neutral-800  font-[600] text-bodybold mb-0">{item.label}</p>
                       <p className="text-neutral-600  text-bodysmal font-[400]">{item.value}</p>
                     </div>
                   </div>
@@ -103,7 +92,7 @@ const ContactForm = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-small font-[500] text-[#0065F2] mb-2">First Name</label>
+                  <label className="block text-bodyextr font-[600] text-neutral-800 mb-2">First Name</label>
                   <input 
                     type="text" 
                     name="firstName"
@@ -114,7 +103,7 @@ const ContactForm = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-small font-[500] text-[#0065F2] mb-2">Last Name</label>
+                  <label className="block text-bodyextr font-[600] text-neutral-800 mb-2">Last Name</label>
                   <input 
                     type="text" 
                     name="lastName"
@@ -127,7 +116,7 @@ const ContactForm = () => {
               </div>
 
               <div>
-                <label className="block text-small font-[500] text-[#0065F2] mb-2">Email Address</label>
+                <label className="block text-bodyextr font-[600] text-neutral-800 mb-2">Email Address</label>
                 <input 
                   type="email" 
                   name="email"
@@ -139,7 +128,7 @@ const ContactForm = () => {
               </div>
 
               <div>
-                <label className="block text-small font-[500] text-[#0065F2] mb-2">Your Subject</label>
+                <label className="block text-bodyextr font-[600] text-neutral-800 mb-2">Your Subject</label>
                 <input 
                   type="text" 
                   name="subject"
@@ -151,7 +140,7 @@ const ContactForm = () => {
               </div>
 
               <div>
-                <label className="block text-small font-[500] text-[#0065F2] mb-2">Message</label>
+                <label className="block text-bodyextr font-[600] text-neutral-800 mb-2">Message</label>
                 <textarea 
                   name="message"
                   value={formData.message}

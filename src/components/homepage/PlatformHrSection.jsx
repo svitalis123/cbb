@@ -8,45 +8,45 @@ const FEATURES_DATA = [
     id: 1,
     title: "Core HR",
     description: "Securely store all employee information.",
-    icon: Users
+    icon: "/assets/homepage/Team.gif"
   },
   {
     id: 2,
     title: "Payroll",
     description: "Process payroll in minutes with automatic tax calculations.",
-    icon: FileText
+    icon: "/assets/homepage/billing.gif"
   },
   {
     id: 3,
     title: "Leave Management",
     description: "Approve leave requests instantly with real-time balance updates.",
-    icon: Calendar
+    icon: "/assets/homepage/schedule.gif"
   },
   {
     id: 4,
     title: "ATS and Onboarding",
     description: "Seamlessly convert candidates into productive team members.",
-    icon: Handshake
+    icon: "/assets/homepage/partnership.gif"
   },
   {
     id: 5,
     title: "Performance Management",
     description: "Turn reviews into growth opportunities with goals and progress tracking.",
-    icon: ClipboardList
+    icon: "/assets/homepage/report.gif"
   },
   {
     id: 6,
     title: "Time Attendance",
     description: "Automate attendance tracking with real-time insights into compliance.",
-    icon: Clock
+    icon: "/assets/homepage/time.gif"
   }
 ];
 
 
 const FeatureCard = ({ title, description, icon: Icon }) => (
-  <Card className="bg-neutral-700 p-6">
+  <Card className="bg-neutral-700 bg-opacity-[.2] shadow-lg p-6">
     <CardContent className="p-0">
-      <Icon className="h-6 w-6 text-blue-600 mb-3" />
+      <Image width={400} height={600} src={Icon} alt={title} className="h-12 w-12 text-blue-600 mb-3" />
       <h3 className="text-neutral-800 font-[600] text-bodybold mb-2">{title}</h3>
       <p className="text-neutral-600 font-[400] text-bodysmal">{description}</p>
     </CardContent>

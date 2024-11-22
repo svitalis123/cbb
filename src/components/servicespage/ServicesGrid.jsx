@@ -1,11 +1,12 @@
 import React from 'react';
 import { Calendar, ChartBarIcon, DockIcon, DollarSign, UsersIcon } from 'lucide-react';
+import Image from 'next/image';
 
 const ServiceCard = ({ title, description, icon: Icon, bulletPoints = [], className = '' }) => {
   return (
     <div className={`bg-white rounded-2xl p-6 shadow-lg flex flex-col gap-4 ${className}`}>
       <div className="text-blue-600 w-12 h-12">
-        {Icon}
+      <Image width={400} height={600} src={Icon} alt={title} className="h-12 w-12 text-blue-600 mb-3" />
       </div>
       <h3 className="text-bodybold font-[600] text-neutral-800">{title}</h3>
       <p className="text-neutral-600 text-bodysmal">{description}</p>
@@ -25,27 +26,27 @@ const ServicesGrid = () => {
     {
       title: "Payroll Outsourcing",
       description: "Let us handle your payroll complexities while you focus on growing your business. Our outsourced payroll services ensure timely and compliant payroll processing every month.",
-      icon: <UsersIcon />
+      icon: "/assets/homepage/Team.gif"
     },
     {
       title: "Recruitment",
       description: "Find the right talent fast. From job posting to interviews, we manage the entire recruitment process so you can focus on finding the perfect fit for your team.",
-      icon: <UsersIcon />
+      icon: "/assets/homepage/Team.gif"
     },
     {
       title: "HR and Compliance Audits",
       description: "We help you navigate the complexities of labor laws and regulations. Our audits ensure that your HR practices are fully compliant and efficient. ",
-      icon: <UsersIcon />
+      icon: "/assets/homepage/Team.gif"
     },
     {
       title: "Staff Outsourcing",
       description: "Get access to skilled professionals without the long-term commitment. Our staff outsourcing services provide flexible, short-term staffing solutions.",
-      icon: <DockIcon />
+      icon: "/assets/homepage/schedule.gif"
     },
     {
       title: "Employee Surveys",
       description: "Measure employee satisfaction and engagement with our custom surveys. Get actionable insights to improve your workplace culture.",
-      icon: <ChartBarIcon />
+      icon: "/assets/homepage/report.gif"
     },
     {
       title: "HR Consulting",
@@ -55,13 +56,13 @@ const ServicesGrid = () => {
         "Contract Management: Ensure all employee contracts are legally sound and up-to-date.",
         "Employee Training: Provide comprehensive training to empower your workforce."
       ],
-      icon: <ChartBarIcon />,
+      icon: "/assets/homepage/report.gif",
       span: true
     },
     {
       title: "Employer of Record Services",
       description: "Expand your business across borders without the complexity. We take care of employment contracts, payroll, taxes, and compliance on your behalf.",
-      icon: <DockIcon />
+      icon: "/assets/homepage/billing.gif"
     }
   ];
 

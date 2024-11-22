@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import {  ThumbsUp, TrendingUp, Scale, GlassWaterIcon } from 'lucide-react';
 import { H3 } from '../ui/typography';
+import Image from 'next/image';
 
 const CoreValues = () => {
   const [data] = useState({
@@ -9,22 +10,22 @@ const CoreValues = () => {
     subtitle: "We live these values every day, in everything we do.",
     values: [
       {
-        icon: GlassWaterIcon,
+        icon: '/assets/about/trophy.gif',
         title: "Do it well",
         description: "We believe in excellence in everything we do."
       },
       {
-        icon: ThumbsUp,
+        icon: '/assets/about/thumbs.gif',
         title: "Make a difference",
         description: "We strive to create positive impacts."
       },
       {
-        icon: TrendingUp,
+        icon: '/assets/about/advantage.gif',
         title: "Go all in",
         description: "We are committed to putting our full effort into each task."
       },
       {
-        icon: Scale,
+        icon: '/assets/about/reseller.gif',
         title: "Lead a balanced life",
         description: "We encourage a harmonious work-life balance for both employees and clients."
       }
@@ -33,7 +34,7 @@ const CoreValues = () => {
 
   const ValueCard = ({ icon: Icon, title, description }) => (
     <div className="bg-[#BAE8FF] border-neutral-600  bg-opacity-[0.2] p-6 rounded-xl shadow-lg flex items-start gap-4 transform transition-transform ">
-      <Icon className="text-blue-600 w-6 h-6 flex-shrink-0" />
+      <Image width={400} height={600} src={Icon} alt={title} className="h-12 w-12 text-blue-600 mb-3" />
       <div>
         <h3 className="text-neutral-800 font-[600] text-bodybold mb-2">{title}</h3>
         <p className="text-neutral-600 font-[400] text-bodysmal">{description}</p>
