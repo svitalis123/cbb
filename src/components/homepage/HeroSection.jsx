@@ -38,7 +38,7 @@ const HeroSection = () => {
 
   if (isLoading) {
     return (
-      <section className="w-full min-h-screen bg-gradient-primary dark:bg-neutral-500 pt-20">
+      <section className="w-full min-h-fit bg-gradient-primary dark:bg-neutral-500 pt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-12 md:pb-16">
           <HeroSkeleton />
         </div>
@@ -47,9 +47,9 @@ const HeroSection = () => {
   }
 // gradient bg-gradient-primary
   return (
-    <section className="w-full min-h-screen  dark:bg-neutral-500 pt-20">
+    <section className="w-full min-h-fit  dark:bg-neutral-500 pt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-12 md:pb-16">
-        <div className="flex flex-col items-center text-center space-y-8">
+        <div className="flex flex-col items-center text-center ">
           {/* Hero Text Content */}
           <div className="max-w-4xl space-y-5">
             <H1 className=" font-[600] leading-[111%] text-neutral-800 dark:text-white tracking-normal">

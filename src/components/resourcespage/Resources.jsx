@@ -1,10 +1,10 @@
 import React from 'react'
 import KnowledgeCenter from './KnowledgeCenter'
 
-const Resources = () => {
+const Resources = ({posts}) => {
   return (
     <div className='bg-neutral-99'>
-      <KnowledgeCenter />
+      <KnowledgeCenter posts={posts} />
     </div>
   )
 }
