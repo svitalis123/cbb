@@ -84,10 +84,10 @@ const Footer = () => {
           <div className="flex flex-col lg:flex-row gap-5 md:gap-6 justify-center items-center">
             <p className='text-small font-[400] text-[#596e8a]'>© 2024 HR Box Africa. All right reserved.</p>
             <div className="space-x-4">
-              <a href="/privacy" className="text-[#596e8a] hover:text-yellow-400 transition duration-200">
+              <a href="/privacy-policy" className="text-[#596e8a] hover:text-yellow-400 transition duration-200">
                 Privacy Policy
               </a>
-              <a href="/terms" className="text-[#596e8a] text-small font-[400] hover:text-yellow-400 transition duration-200">
+              <a href="/privacy-policy" className="text-[#596e8a] text-small font-[400] hover:text-yellow-400 transition duration-200">
                 Terms of Service
               </a>
             </div>
