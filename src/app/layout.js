@@ -1,11 +1,11 @@
-import { Lato } from 'next/font/google'
+import { Lato, Outfit } from 'next/font/google'
 import "./globals.css";
 import { ThemeProvider } from '@/components/shared/theme-provider';
 import { GoogleTagManager } from '@next/third-parties/google'
 import ThemeWrapper from '@/components/shared/ThemeWrapper';
 import Head from 'next/head';
 
-const lato = Lato({
+const outfit = Outfit({
   weight: ['100', '300', '400', '700', '900'],
   subsets: ['latin'],
   variable: '--font-lato',
@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${lato.className} antialiased bg-[#eef9ff]`}
+        className={`${outfit.className} antialiased bg-[#eef9ff]`}
       >
         <Head>
           <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
