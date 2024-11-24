@@ -173,72 +173,77 @@ const RenderIndividualBlog = ({ blogData }) => {
         <Menu size={24} />
       </Button>
       
-      <div className="lg:flex max-w-7xl mx-auto mt-6">
-        {/* Navigation Sidebar */}
-        <Card className={`
-          lg:w-1/4 lg:max-w-[300px] lg:absolute  lg:h-screen p-8 
-          bg-neutral-99 shadow-lg rounded-[32px] z-40
-          ${isMenuOpen ? 'fixed inset-0' : 'hidden lg:block'}
-        `}>
-          <CardContent className="p-0">
-            {isMenuOpen && (
-              <Button
-                variant="ghost"
-                className="lg:hidden absolute top-4 right-4 text-neutral-800"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <X size={24} />
-              </Button>
-            )}
-            
-            <ScrollArea className="h-[calc(100vh-4rem)]">
-              <nav className="space-y-4">
-                {sections.map((section) => (
-                  <a
-                    key={section.id}
-                    href={`#${section.id}`}
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`
-                      block text-bodymed font-[500] transition-colors
-                      ${activeSection === section.id 
-                        ? 'text-primary-dark' 
-                        : 'text-neutral-500 hover:text-primary-dark'}
-                    `}
-                  >
-                    {section.title}
-                  </a>
-                ))}
-              </nav>
-            </ScrollArea>
-          </CardContent>
-        </Card>
-        
-        {/* Main Content */}
-        <main className="lg:w-3/4 lg:ml-auto">
-          <Card className="m-4 lg:m-8 bg-neutral-99 rounded-[32px] shadow-sm">
-            <CardContent className="p-8">
-              <div className="prose max-w-none">
-                {sections.map((section) => (
-                  <section key={section.id} id={section.id} className="mb-12">
-                    <h2 className="text-h5 lg:text-h4 font-[600] text-neutral-800 mb-6">
-                      {section.title}
-                    </h2>
-                    <div className="space-y-6">
-                      {section.content.map((content, index) => (
-                        <div 
-                          key={index}
-                          className="text-bodymed text-neutral-600"
+      <div className="max-w-7xl mx-auto pt-6 lg:px-8">
+        <div className="lg:flex lg:gap-8">
+          {/* Navigation Sidebar */}
+          <aside className={`
+            lg:block lg:w-64 flex-none
+            ${isMenuOpen ? 'fixed inset-0 z-40' : 'hidden'}
+          `}>
+            <div className="lg:sticky lg:top-32 lg:h-[calc(100vh-1.5rem)]">
+              <Card className="bg-neutral-99 shadow-lg rounded-[32px] p-8">
+                <CardContent className="p-0">
+                  {isMenuOpen && (
+                    <Button
+                      variant="ghost"
+                      className="lg:hidden absolute top-4 right-4 text-neutral-800"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <X size={24} />
+                    </Button>
+                  )}
+                  
+                  <ScrollArea className="h-[calc(100vh-8rem)] lg:h-[calc(100vh-10rem)]">
+                    <nav className="space-y-4">
+                      {sections.map((section) => (
+                        <a
+                          key={section.id}
+                          href={`#${section.id}`}
+                          onClick={() => setIsMenuOpen(false)}
+                          className={`
+                            block text-bodymed font-[500] transition-colors
+                            ${activeSection === section.id 
+                              ? 'text-primary-dark' 
+                              : 'text-neutral-500 hover:text-primary-dark'}
+                          `}
                         >
-                          {renderContent(content)}
-                        </div>
+                          {section.title}
+                        </a>
                       ))}
-                    </div>
-                  </section>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </main>
+                    </nav>
+                  </ScrollArea>
+                </CardContent>
+              </Card>
+            </div>
+          </aside>
+          
+          {/* Main Content */}
+          <main className="flex-1">
+            <Card className="m-4 lg:m-0 bg-neutral-99 rounded-[32px] shadow-sm">
+              <CardContent className="p-8">
+                <div className="prose max-w-none">
+                  {sections.map((section) => (
+                    <section key={section.id} id={section.id} className="mb-12">
+                      <h2 className="text-h5 lg:text-h4 font-[600] text-neutral-800 mb-6">
+                        {section.title}
+                      </h2>
+                      <div className="space-y-6">
+                        {section.content.map((content, index) => (
+                          <div 
+                            key={index}
+                            className="text-bodymed text-neutral-600"
+                          >
+                            {renderContent(content)}
+                          </div>
+                        ))}
+                      </div>
+                    </section>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </main>
+        </div>
       </div>
     </div>
   );

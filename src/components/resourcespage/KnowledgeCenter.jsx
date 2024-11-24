@@ -5,11 +5,9 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from "@/components/ui/badge";
 import Link from 'next/link';
 
-
 const KnowledgeCenter = ({ posts }) => {
   const [activeTab, setActiveTab] = useState('Blogs');
 
-  // Function to truncate text to a specific word limit
   const truncateText = (text, limit = 25) => {
     const words = text.split(' ');
     if (words.length > limit) {
@@ -18,12 +16,10 @@ const KnowledgeCenter = ({ posts }) => {
     return text;
   };
 
-  // Function to clean and extract the original image path from Next.js image URL
   const cleanImageUrl = (url) => {
     try {
       if (!url) return "/placeholder-image.jpg";
       
-      // If it's a Next.js image URL, extract the original path
       if (url.includes('/_next/image?url=')) {
         const urlParam = new URL(url).searchParams.get('url');
         if (urlParam) {
@@ -31,33 +27,49 @@ const KnowledgeCenter = ({ posts }) => {
         }
       }
       
-      // If it's already a clean URL, return it
       return url;
     } catch (error) {
       return "/placeholder-image.jpg";
     }
   };
 
-  // Group posts by category
+  // Updated grouping logic
   const contentData = posts.reduce((acc, post) => {
-    const category = post.type || 'Blogs'; // Default to Blogs if type is not specified
-    if (!acc[category]) {
-      acc[category] = [];
-    }
-    acc[category].push({
+    // Initialize all tabs
+    if (!acc['Blogs']) acc['Blogs'] = [];
+    if (!acc['Case Studies']) acc['Case Studies'] = [];
+    if (!acc['Whitepapers']) acc['Whitepapers'] = [];
+
+    const postData = {
       id: post._id,
       title: post.title,
       description: post.excerpt || post.content,
       content: post.content,
       slug: post.title_id,
       categories: post.categories || []
-    });
+    };
+
+    // Check if post has categories
+    if (post.categories && post.categories.length > 0) {
+      // Check if any category matches our tab names
+      const matchingCategory = post.categories.find(category => 
+        ['Blogs', 'Case Studies', 'Whitepapers'].includes(category)
+      );
+
+      if (matchingCategory) {
+        // Add to matching category
+        acc[matchingCategory].push(postData);
+      } else {
+        // If no matching category, default to Blogs
+        acc['Blogs'].push(postData);
+      }
+    } else {
+      // If no categories, default to Blogs
+      acc['Blogs'].push(postData);
+    }
+
     return acc;
-  }, {
-    'Blogs': [],
-    'Case Studies': [],
-    'Whitepapers': []
-  });
+  }, {});
 
   const tabs = ['Blogs', 'Case Studies', 'Whitepapers'];
 
@@ -78,7 +90,7 @@ const KnowledgeCenter = ({ posts }) => {
         </p>
       </motion.div>
 
-      {/* Navigation with underline */}
+      {/* Navigation */}
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
