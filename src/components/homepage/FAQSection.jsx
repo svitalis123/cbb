@@ -17,11 +17,11 @@ const FAQSection = () => {
     },
     {
       question: "Can I outsource the entire HR function to you?",
-      answer: "No, our support team is in-house, ensuring personalized and consistent service."
+      answer: "Yes, we offer end-to-end HR outsourcing, including payroll, recruitment, employee management, and compliance."
     },
     {
       question: "How secure is HRBOX? Where is your data stored?",
-      answer: "No, our support team is in-house, ensuring personalized and consistent service."
+      answer: "HRBOX prioritizes data security. All data is encrypted and stored securely in ISO-certified data centers, ensuring full compliance with global data protection regulations."
     }
   ];
 
