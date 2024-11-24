@@ -47,15 +47,19 @@ const Header = () => {
               ))}
             </nav>
             <div className="hidden lg:flex items-center space-x-4">
+            <a href="https://app.hrbox.africa/system/login" target="_blank" rel="noopener noreferrer">
               <Button
                 variant="ghost"
                 className="text-neutral-800 bg-neutral-700 bg-opacity-[.2] font-[500] text-bodysmal hover:text-primary dark:text-white"
               >
                 Sign Up
               </Button>
+              </a>
+              <a href="https://app.hrbox.africa/system/login" target="_blank" rel="noopener noreferrer">
               <Button className="bg-primary-dark text-bodysmal hover:bg-primary-light text-neutral-99">
                 Log In
               </Button>
+              </a>
             </div>
 
             {/* Mobile Navigation */}
@@ -78,15 +82,19 @@ const Header = () => {
                       </Link>
                     ))}
                     <div className="flex flex-col space-y-4 pt-4">
+                      <a href="https://app.hrbox.africa/system/login" target="_blank" rel="noopener noreferrer">
                       <Button
                         variant="ghost"
                         className="text-neutral-800 bg-neutral-700 font-[500] text-bodysmal dark:text-white w-full"
                       >
                         Sign Up
                       </Button>
+                      </a>
+                      <a href="https://app.hrbox.africa/system/login" target="_blank" rel="noopener noreferrer">
                       <Button className="bg-primary-dark text-bodysmal hover:bg-primary-light text-neutral-99 w-full">
                         Log In
                       </Button>
+                      </a>
                     </div>
                   </nav>
                 </SheetContent>

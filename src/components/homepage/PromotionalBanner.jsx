@@ -7,8 +7,8 @@ const PromotionalBanner = ({
   title = "Ready to Transform your Workforce?",
   description = "Streamline processes, empower your team, and drive growth with HRBOX Africa.",
   ctaButtons = [
-    { text: "Book a Demo", variant: "light" },
-    { text: "Get Started Today", variant: "dark", hasArrow: true }
+    { text: "Book a Demo", link: "https://app.hrbox.africa/system/login", variant: "light" },
+    { text: "Get Started Today", link: "https://airtable.com/appplvfzbs9RuJ9e4/pagtTulSCq3GEcZbU/form", variant: "dark", hasArrow: true }
   ],
   imageSrc = "/team-celebration.jpg",
   imageAlt = "Team celebrating together"
@@ -37,8 +37,8 @@ const PromotionalBanner = ({
           </p>
           <div className="flex justify-center md:justify-start flex-wrap gap-4">
             {ctaButtons.map((button, index) => (
-              <button 
-                key={index}
+              <a key={index} href={button.link} target="_blank" rel="noopener noreferrer">
+              <button                 
                 className={`px-8 py-3 flex items-center rounded-lg font-[500] text-bodysmal  transition-colors ${
                   button.variant === 'light' 
                     ? 'bg-neutral-700 text-neutral-800 hover:bg-sky-50'
@@ -48,6 +48,7 @@ const PromotionalBanner = ({
                 {button.text}
                 {button.hasArrow && <ChevronRight />}
               </button>
+               </a>
             ))}
           </div>
         </div>

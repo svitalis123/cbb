@@ -21,9 +21,11 @@ const HROutsourcingBanner = ({
             <Image src={imageSrc} width={600} height={400} alt={imageAlt} className="w-full h-auto"/>
           </div>
           <p className="text-neutral-600 font-[400] text-bodymed mb-6">{subtitle}</p>
+          <a href="https://airtable.com/appplvfzbs9RuJ9e4/pagtTulSCq3GEcZbU/form" target="_blank" rel="noopener noreferrer">
           <button className="bg-primary-dark text-neutral-99 font-[500] px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
             {buttonText}
           </button>
+          </a>
         </div>
         <div className="hidden md:flex md:flex-1">
           <Image src={imageSrc} width={600} height={400} alt={imageAlt} className="w-full h-auto"/>
