@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils"
 
 export const H1 = ({ children, className }) => (
   <h1 className={cn(
-    "text-h3 lg:text-h1 font-normal leading-tight tracking-tight",
+    "text-[2.25rem] lg:text-h1 font-normal leading-tight tracking-tight",
     className
   )}>
     {children}
@@ -21,7 +21,7 @@ export const H2 = ({ children, className }) => (
 
 export const H3 = ({ children, className }) => (
   <h3 className={cn(
-    "text-h5 lg:text-h3 font-normal leading-tight tracking-tight",
+    "text-[2rem] lg:text-h3 font-normal leading-tight tracking-tight",
     className
   )}>
     {children}

@@ -47,7 +47,7 @@ const HeroSection = () => {
   }
 // gradient bg-gradient-primary
   return (
-    <section className="w-full min-h-fit  dark:bg-neutral-500 pt-20">
+    <section className="w-full min-h-fit  dark:bg-neutral-500 pt-10 lg:pt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-12 md:pb-16">
         <div className="flex flex-col items-center text-center ">
           {/* Hero Text Content */}
@@ -57,7 +57,7 @@ const HeroSection = () => {
               <span className="block">to do excellent work</span>
             </H1>
             
-            <p className="text-body font-[300] text-neutral-600 dark:text-neutral-200">
+            <p className="text-body font-[400] text-neutral-600 dark:text-neutral-200">
             Effortless HR Solutions for Growing Businesses Across Africa
             </p>
             
