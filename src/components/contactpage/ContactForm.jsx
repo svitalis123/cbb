@@ -16,14 +16,14 @@ const ContactForm = () => {
         icon: '/assets/contact/calling.gif',
         label: 'Phone Number:',
         value: '+254 719 262 360',
-        href: 'tel:+254719262360'  // Added href for phone
+        href: 'tel:+254719262360'
       },
       {
         id: 'email',
         icon: '/assets/contact/mail.gif',
         label: 'Email Address:',
         value: 'info@hrbox.com',
-        href: 'mailto:info@hrbox.com'  // Added href for email
+        href: 'mailto:info@hrbox.com'
       },
       {
         id: 'location',
@@ -43,6 +43,12 @@ const ContactForm = () => {
     message: ''
   });
 
+  // Error state
+  const [errors, setErrors] = useState({});
+  
+  // Submitting state
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   // Handle form input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -50,54 +56,100 @@ const ContactForm = () => {
       ...prev,
       [name]: value
     }));
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
+  };
+
+  // Validate email format
+  const validateEmail = (email) => {
+    return email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
+  };
+
+  // Validate form
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = 'First name is required';
+    }
+
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = 'Last name is required';
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!validateEmail(formData.email)) {
+      newErrors.email = 'Please enter a valid email';
+    }
+
+    if (!formData.subject.trim()) {
+      newErrors.subject = 'Subject is required';
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Format email body with HTML line breaks and spaces
-    const emailBody = `Name: ${formData.firstName} ${formData.lastName}%0D%0A%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
-    
-    // Create mailto URL without encoding the body again
-    const mailtoUrl = `mailto:${contactInfo.details[1].value}?subject=${encodeURIComponent(formData.subject)}&body=${emailBody}`;
-    
-    // Try multiple methods to open email client
-    const tryToOpenMail = () => {
-      // Method 1: Create and click a link
-      try {
-        const link = document.createElement('a');
-        link.href = mailtoUrl;
-        link.rel = 'noopener noreferrer';
-        document.body.appendChild(link);
-        link.click();
-        setTimeout(() => {
-          document.body.removeChild(link);
-        }, 100);
-        return true;
-      } catch (err) {
-        console.error('Primary method failed:', err);
-      }
+    if (!validateForm()) {
+      return;
+    }
 
-      // Method 2: Direct location change
-      try {
-        window.location.href = mailtoUrl;
-        return true;
-      } catch (err) {
-        console.error('Secondary method failed:', err);
-        return false;
-      }
-    };
+    setIsSubmitting(true);
+
+    // Create email body with proper line breaks
+    const emailBody = `Dear HRBOX Team,
+    
+I am ${formData.firstName} ${formData.lastName}, and I would like to get in touch regarding:
+
+${formData.message}
+
+Best regards,
+${formData.firstName} ${formData.lastName}
+${formData.email}`
+    .split('\n')
+    .join('%0D%0A');
+
+    // Create mailto URL with properly encoded subject
+    const mailtoUrl = `mailto:${contactInfo.details[1].value}?subject=${encodeURIComponent(formData.subject)}&body=${emailBody}`;
 
     try {
-      const success = tryToOpenMail();
-      if (!success) {
-        // If all methods fail, show manual instructions
-        alert(`Please send your message manually to: ${contactInfo.details[1].value}\n\nSubject: ${formData.subject}\n\nMessage: ${formData.message}`);
-      }
+      // Create and click a link
+      const link = document.createElement('a');
+      link.href = mailtoUrl;
+      link.rel = 'noopener noreferrer';
+      document.body.appendChild(link);
+      link.click();
+      setTimeout(() => {
+        document.body.removeChild(link);
+      }, 100);
+
+      // Reset form
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
     } catch (error) {
       console.error('Error opening email client:', error);
       alert(`Please send your message manually to: ${contactInfo.details[1].value}`);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -151,9 +203,11 @@ const ContactForm = () => {
                     value={formData.firstName}
                     onChange={handleInputChange}
                     placeholder="Enter your first name"
-                    required
-                    className="w-full border-b-2 text-bodyextr font-normal border-[#E2E8F0] pb-2 placeholder-[#A0AEC0] focus:outline-none focus:border-[#2B63D9] transition-colors"
+                    className={`w-full border-b-2 text-bodyextr font-normal ${errors.firstName ? 'border-red-500' : 'border-[#E2E8F0]'} pb-2 placeholder-[#A0AEC0] focus:outline-none focus:border-[#2B63D9] transition-colors`}
                   />
+                  {errors.firstName && (
+                    <p className="mt-1 text-red-500 text-sm">{errors.firstName}</p>
+                  )}
                 </div>
                 <div>
                   <label className="block text-bodyextr font-[600] text-neutral-800 mb-2">Last Name</label>
@@ -163,9 +217,11 @@ const ContactForm = () => {
                     value={formData.lastName}
                     onChange={handleInputChange}
                     placeholder="Enter your last name"
-                    required
-                    className="w-full border-b-2 text-bodyextr font-normal border-[#E2E8F0] pb-2 placeholder-[#A0AEC0] focus:outline-none focus:border-[#2B63D9] transition-colors"
+                    className={`w-full border-b-2 text-bodyextr font-normal ${errors.lastName ? 'border-red-500' : 'border-[#E2E8F0]'} pb-2 placeholder-[#A0AEC0] focus:outline-none focus:border-[#2B63D9] transition-colors`}
                   />
+                  {errors.lastName && (
+                    <p className="mt-1 text-red-500 text-sm">{errors.lastName}</p>
+                  )}
                 </div>
               </div>
 
@@ -177,9 +233,11 @@ const ContactForm = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="Enter your email"
-                  required
-                  className="w-full border-b-2 text-bodyextr font-normal border-[#E2E8F0] pb-2 placeholder-[#A0AEC0] focus:outline-none focus:border-[#2B63D9] transition-colors"
+                  className={`w-full border-b-2 text-bodyextr font-normal ${errors.email ? 'border-red-500' : 'border-[#E2E8F0]'} pb-2 placeholder-[#A0AEC0] focus:outline-none focus:border-[#2B63D9] transition-colors`}
                 />
+                {errors.email && (
+                  <p className="mt-1 text-red-500 text-sm">{errors.email}</p>
+                )}
               </div>
 
               <div>
@@ -190,9 +248,11 @@ const ContactForm = () => {
                   value={formData.subject}
                   onChange={handleInputChange}
                   placeholder="Enter subject"
-                  required
-                  className="w-full border-b-2 text-bodyextr font-normal border-[#E2E8F0] pb-2 placeholder-[#A0AEC0] focus:outline-none focus:border-[#2B63D9] transition-colors"
+                  className={`w-full border-b-2 text-bodyextr font-normal ${errors.subject ? 'border-red-500' : 'border-[#E2E8F0]'} pb-2 placeholder-[#A0AEC0] focus:outline-none focus:border-[#2B63D9] transition-colors`}
                 />
+                {errors.subject && (
+                  <p className="mt-1 text-red-500 text-sm">{errors.subject}</p>
+                )}
               </div>
 
               <div>
@@ -203,16 +263,26 @@ const ContactForm = () => {
                   onChange={handleInputChange}
                   rows={4} 
                   placeholder="Enter your message"
-                  required
-                  className="w-full border-b-2 border-[#E2E8F0] text-bodyextr font-normal pb-2 placeholder-[#A0AEC0] focus:outline-none focus:border-[#2B63D9] transition-colors resize-none"
+                  className={`w-full border-b-2 ${errors.message ? 'border-red-500' : 'border-[#E2E8F0]'} text-bodyextr font-normal pb-2 placeholder-[#A0AEC0] focus:outline-none focus:border-[#2B63D9] transition-colors resize-none`}
                 />
+                {errors.message && (
+                  <p className="mt-1 text-red-500 text-sm">{errors.message}</p>
+                )}
               </div>
 
               <button 
                 type="submit" 
-                className="w-full bg-primary-dark text-neutral-99 py-3 rounded-lg hover:bg-[#2454BE] transition-colors"
+                disabled={isSubmitting}
+                className={`w-full ${isSubmitting ? 'bg-gray-400' : 'bg-primary-dark'} text-neutral-99 py-3 rounded-lg hover:bg-[#2454BE] transition-colors flex items-center justify-center`}
               >
-                Send Message
+                {isSubmitting ? (
+                  <>
+                    <span className="mr-2">Sending...</span>
+                    <span className="animate-spin">↻</span>
+                  </>
+                ) : (
+                  'Send Message'
+                )}
               </button>
             </form>
           </div>

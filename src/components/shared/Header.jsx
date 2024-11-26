@@ -8,7 +8,7 @@ import { Card } from "../ui/card";
 
 const Header = () => {
   const navItems = [
-    { label: "Product", href: "https://app.hrbox.africa/system/login" },
+    { label: "Product", href: "/" },
     { label: "Services", href: "/services" },
     { label: "Resources", href: "/resources" },
     { label: "About Us", href: "/about-us" },
