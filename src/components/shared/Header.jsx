@@ -119,7 +119,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <section className="bg-[#D8F2FF] w-full">
+      {/* <section className="bg-[#D8F2FF] w-full">
         <div className="flex flex-col sm:flex-row justify-center items-center gap-2 p-4 text-center sm:text-left">
           <span className="font-[500] text-bodysmal text-neutral-800">
             Talk to sales:
@@ -131,7 +131,7 @@ const Header = () => {
             +254 719 262 360
           </a>
         </div>
-      </section>
+      </section> */}
     </header>
   );
 };
