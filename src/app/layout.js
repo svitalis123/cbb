@@ -1,7 +1,7 @@
 import { Lato, Outfit } from 'next/font/google'
 import "./globals.css";
 import { ThemeProvider } from '@/components/shared/theme-provider';
-import { GoogleTagManager } from '@next/third-parties/google'
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 import ThemeWrapper from '@/components/shared/ThemeWrapper';
 import Head from 'next/head';
 
@@ -51,6 +51,7 @@ export default function RootLayout({ children }) {
           <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
           <link rel="manifest" href="/site.webmanifest" />
         </Head>
+        <GoogleAnalytics gaId="G-8J1H359D9X" />
         <GoogleTagManager gtmId="GTM-W4GPD6S4" />
          <ThemeWrapper>
           {children}
