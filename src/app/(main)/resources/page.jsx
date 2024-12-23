@@ -27,3 +27,4 @@ export default async function KnowledgeCenterPage() {
     </main>
   );
 }
+export const revalidate = 0;

@@ -18,9 +18,8 @@ export default function LoginPage() {
   const { toast } = useToast();
 
   useEffect(() => {
-    console.log('Admin Email:', process.env.NEXT_PUBLIC_ADMIN_EMAIL);
     if (process.env.NODE_ENV === 'development') {
-      console.log('Environment:', process.env.NODE_ENV);
+      // console.log('Environment:', process.env.NODE_ENV);
     }
   }, []);
 
@@ -31,12 +30,7 @@ export default function LoginPage() {
     const ADMIN_EMAIL = process.env.NEXT_PUBLIC_ADMIN_EMAIL;
     const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
 
-    console.log('Attempting login with:', { 
-      inputEmail: email, 
-      expectedEmail: ADMIN_EMAIL,
-      emailMatch: email === ADMIN_EMAIL,
-      passwordMatch: password === ADMIN_PASSWORD 
-    });
+  
 
     if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
       localStorage.setItem('isAuthenticated', 'true');

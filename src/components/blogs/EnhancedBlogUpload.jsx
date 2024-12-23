@@ -93,7 +93,6 @@ const EnhancedBlogUpload = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    console.log('Submitting blog post:', blogData);
     
     try {
       const response = await fetch('/api/blogs', {
@@ -105,7 +104,6 @@ const EnhancedBlogUpload = () => {
       });
       
       const data = await response.json();
-      console.log('API Response:', data);
       
       if (response.ok) {
         toast({

@@ -22,7 +22,7 @@ export async function generateMetadata({ params }) {
       title: blog.seoTitle || blog.title,
       description: blog.seoDescription || blog.excerpt,
       type: 'article',
-      url: `https://yourdomain.com/blog/${blog.title_id}`,
+      url: `https://hrbox.africa/blog/${blog.title_id}`,
       images: [
         {
           url: 'https://pbs.twimg.com/profile_images/1577206532160176128/qz_G5k4Z_400x400.jpg',
@@ -61,3 +61,4 @@ export default async function BlogPost({ params }) {
     </div>
   );
 }
+export const revalidate = 0;
