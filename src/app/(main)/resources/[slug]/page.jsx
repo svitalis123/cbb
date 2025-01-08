@@ -4,12 +4,10 @@ import { notFound } from 'next/navigation';
 import RenderIndividualBlog from '@/components/blogs/RenderIndividualBlog';
 import clientPromise from '@/lib/mongodb';
 
-
-
 export async function generateMetadata({ params }) {
   const blog = await getBlogPost(params.slug);
-  
-  if (!blog) {
+    
+    if (!blog) {
     return {
       title: 'Blog Post Not Found',
     };
@@ -18,8 +16,10 @@ export async function generateMetadata({ params }) {
   return {
     title: blog.seoTitle || blog.title,
     description: blog.seoDescription || blog.excerpt,
+    keywords: blog.tags,
+    author: 'HR Box Africa',  
     openGraph: {
-      title: blog.seoTitle || blog.title,
+      title: blog.seoTitle || blog.title,      
       description: blog.seoDescription || blog.excerpt,
       type: 'article',
       url: `https://hrbox.africa/blog/${blog.title_id}`,
@@ -44,13 +44,13 @@ async function getBlogPost(slug) {
   const client = await clientPromise;
   const db = client.db("blogDatabase");
   const collection = db.collection("posts");
-  
   return await collection.findOne({ title_id: slug });
 }
 
 export default async function BlogPost({ params }) {
   const blog = await getBlogPost(params.slug);
-  
+
+
   if (!blog) {
     notFound();
   }
