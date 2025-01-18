@@ -1,3 +1,4 @@
+// src/app/api/blogs/route.js
 import { NextResponse } from 'next/server';
 import clientPromise from '@/lib/mongodb';
 import { createBlogPost, BlogPostSchema } from '@/models/BlogPost';

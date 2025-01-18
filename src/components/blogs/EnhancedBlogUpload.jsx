@@ -15,7 +15,7 @@ const MinimalTiptapEditor = lazy(() =>
   import('@/components/editor/minimal-tiptap').then((mod) => ({ default: mod.MinimalTiptapEditor }))
 );
 
-const EnhancedBlogUpload = () => {
+const EnhancedBlogUpload = ({ initialData = null, isEditing = false }) => {
   const { toast } = useToast();
   const initialBlogData = {
     title: '',
@@ -31,7 +31,7 @@ const EnhancedBlogUpload = () => {
     seoDescription: '',
   };
 
-  const [blogData, setBlogData] = useState(initialBlogData);
+  const [blogData, setBlogData] = useState(initialData || initialBlogData);
   const [isLoading, setIsLoading] = useState(false);
 
   const generateTitleId = (title) => {
@@ -94,9 +94,15 @@ const EnhancedBlogUpload = () => {
     e.preventDefault();
     setIsLoading(true);
     
+    const url = isEditing 
+      ? `/api/blogs/${blogData.title_id}`
+      : '/api/blogs';
+    
+    const method = isEditing ? 'PUT' : 'POST';
+    
     try {
-      const response = await fetch('/api/blogs', {
-        method: 'POST',
+      const response = await fetch(url, {
+        method,
         headers: {
           'Content-Type': 'application/json',
         },
@@ -108,19 +114,22 @@ const EnhancedBlogUpload = () => {
       if (response.ok) {
         toast({
           title: "Success!",
-          description: "Blog post uploaded successfully.",
+          description: `Blog post ${isEditing ? 'updated' : 'uploaded'} successfully.`,
           variant: "success",
         });
-        resetForm();
+        
+        if (!isEditing) {
+          resetForm();
+        }
       } else {
         toast({
           title: "Error",
-          description: data.error || "Failed to upload blog post. Please try again.",
+          description: data.error || `Failed to ${isEditing ? 'update' : 'upload'} blog post. Please try again.`,
           variant: "destructive",
         });
       }
     } catch (error) {
-      console.error('Error uploading blog post:', error);
+      console.error('Error:', error);
       toast({
         title: "Error",
         description: "An unexpected error occurred. Please try again.",
@@ -311,7 +320,10 @@ const EnhancedBlogUpload = () => {
               className="w-full bg-primary-dark hover:bg-primary !text-neutral-99 text-bodysmal font-[500] py-6 mb-4" 
               disabled={isLoading}
             >
-              {isLoading ? 'Uploading...' : 'Upload Blog Post'}
+              {isLoading 
+                ? (isEditing ? 'Updating...' : 'Uploading...') 
+                : (isEditing ? 'Update Blog Post' : 'Upload Blog Post')
+              }
             </Button>
           </form>
         </CardContent>
