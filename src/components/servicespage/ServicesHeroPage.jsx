@@ -18,7 +18,7 @@ const HeroSection = () => {
             </p>
             
             <div className='flex flex-col md:flex-row items-center justify-center gap-3'>
-            <a href="https://app.hrbox.africa/system/login" target="_blank" rel="noopener noreferrer">
+            <a href="https://airtable.com/appplvfzbs9RuJ9e4/pagtTulSCq3GEcZbU/form" target="_blank" rel="noopener noreferrer">
               <Button 
                 size="lg"
                 className="bg-[#BAE8FF] text-bodysmal font-[600] hover:text-neutral-99 hover:bg-primary-light text-[#123059] dark:bg-primary-light dark:hover:bg-primary transition-colors"
