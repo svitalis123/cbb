@@ -8,7 +8,7 @@ const PromotionalBanner = ({
   description = "Streamline processes, empower your team, and drive growth with HRBOX Africa.",
   ctaButtons = [
     { text: "Book a Demo", link: "https://airtable.com/appplvfzbs9RuJ9e4/pagtTulSCq3GEcZbU/form", variant: "light" },
-    { text: "Get Started Today", link: "https://airtable.com/appplvfzbs9RuJ9e4/pagtTulSCq3GEcZbU/form", variant: "dark", hasArrow: true }
+    { text: "Get Started Today", link: "https://app.hrbox.africa/system/login", variant: "dark", hasArrow: true }
   ],
   imageSrc = "/team-celebration.jpg",
   imageAlt = "Team celebrating together"

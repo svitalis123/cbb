@@ -70,7 +70,7 @@ const HeroSection = () => {
                 Book a Demo 
               </Button>
               </a>
-              <a href="https://airtable.com/appplvfzbs9RuJ9e4/pagtTulSCq3GEcZbU/form" target="_blank" rel="noopener noreferrer">
+              <a href="https://app.hrbox.africa/system/login" target="_blank" rel="noopener noreferrer">
               <Button 
                 size="lg"
                 className="bg-primary-dark text-bodysmal font-semibold hover:bg-primary-light text-white dark:bg-primary-light dark:hover:bg-primary transition-colors"
