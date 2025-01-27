@@ -16,22 +16,26 @@ const KnowledgeCenter = ({ posts }) => {
     return text;
   };
 
-  const cleanImageUrl = (url) => {
-    try {
-      if (!url) return "/placeholder-image.jpg";
-      
-      if (url.includes('/_next/image?url=')) {
-        const urlParam = new URL(url).searchParams.get('url');
-        if (urlParam) {
-          return decodeURIComponent(urlParam);
-        }
+ const cleanImageUrl = (url) => {
+  try {
+    if (!url) return "/placeholder-image.jpg";
+    
+    // First decode any HTML entities
+    let decodedUrl = url.replace(/&amp;/g, '&');
+    
+    if (decodedUrl.includes('/_next/image?url=')) {
+      const urlParam = new URL(decodedUrl).searchParams.get('url');
+      if (urlParam) {
+        return decodeURIComponent(urlParam);
       }
-      
-      return url;
-    } catch (error) {
-      return "/placeholder-image.jpg";
     }
-  };
+    
+    return decodedUrl;
+  } catch (error) {
+    console.error('Error cleaning URL:', error);
+    return "/placeholder-image.jpg";
+  }
+};
 
   // Updated grouping logic
   const contentData = posts.reduce((acc, post) => {
