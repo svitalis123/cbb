@@ -29,7 +29,7 @@ const ContactForm = () => {
         id: 'location',
         icon: '/assets/contact/location.gif',
         label: 'Office Location:',
-        value: 'Kilimani No 51'
+        value: 'Tuwork Park, Olengurone, Lavington.'
       }
     ]
   };

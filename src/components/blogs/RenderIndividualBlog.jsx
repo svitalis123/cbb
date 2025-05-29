@@ -82,24 +82,24 @@ const parseBlogContent = (htmlContent) => {
     };
   };
 
-  const createSection = (title, node) => {
+  const createSection = (title) => {
     if (currentSection) {
       sections.push(currentSection);
     }
     currentSection = {
       id: title.toLowerCase().replace(/\s+/g, '-'),
       title: title.trim(),
-      content: [processNode(node)]
+      content: []
     };
   };
 
   doc.body.childNodes.forEach((node) => {
     if (node.nodeType === Node.ELEMENT_NODE) {
       if (isHeading(node)) {
-        createSection(node.textContent, node);
+        createSection(node.textContent);
       } else if (node.tagName === 'P' && node.querySelector('strong')) {
         const strongText = node.querySelector('strong').textContent;
-        createSection(strongText, node);
+        createSection(strongText);
       } else if (currentSection) {
         currentSection.content.push(processNode(node));
       } else {
@@ -153,11 +153,48 @@ const RenderIndividualBlog = ({ blogData }) => {
     if (content.type === 'code') {
       return <TerminalCodeBlock code={content.content} language={content.language} />;
     }
-    return <div dangerouslySetInnerHTML={{ __html: content.content }} />;
+    return (
+      <div 
+        dangerouslySetInnerHTML={{ __html: content.content }} 
+        className="prose-content"
+      />
+    );
   };
+
+  const customStyles = `
+    .prose-content p {
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+    
+    .prose-content p:last-child {
+      margin-bottom: 0;
+    }
+    
+    .prose-content strong {
+      font-weight: 600;
+      color: #1f2937;
+    }
+    
+    .prose-content p strong:first-child {
+      display: inline-block;
+      margin-top: 1rem;
+    }
+    
+    .prose-content ul, .prose-content ol {
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+    
+    .prose-content li {
+      margin-bottom: 0.5rem;
+    }
+  `;
 
   return (
     <div className="min-h-screen bg-[#eef9ff]">
+      <style jsx>{customStyles}</style>
+      
       {/* Progress Bar */}
       <div 
         className="fixed top-0 left-0 h-1 bg-primary-light z-50" 
@@ -223,15 +260,15 @@ const RenderIndividualBlog = ({ blogData }) => {
               <CardContent className="p-8">
                 <div className="prose max-w-none">
                   {sections.map((section) => (
-                    <section key={section.id} id={section.id} className="mb-12">
-                      <h2 className="text-h5 lg:text-h4 font-[600] text-neutral-800 mb-6">
+                    <section key={section.id} id={section.id} className="mb-16">
+                      <h2 className="text-h5 lg:text-h4 font-[600] text-neutral-800 mb-8">
                         {section.title}
                       </h2>
-                      <div className="space-y-6">
+                      <div className="space-y-8">
                         {section.content.map((content, index) => (
                           <div 
                             key={index}
-                            className="text-bodymed text-neutral-600"
+                            className="text-bodymed text-neutral-600 leading-relaxed"
                           >
                             {renderContent(content)}
                           </div>
