@@ -13,6 +13,16 @@ export const BlogPostSchema = {
   isPublished: { type: Boolean, default: false },
   seoTitle: { type: String },
   seoDescription: { type: String },
+  authorImage: {
+    type: String,
+    required: false,
+    default: null
+  },
+  authorImageType: {
+    type: String,
+    required: false, 
+    default: null
+  }
 };
 
 export function createBlogPost(data) {
@@ -26,6 +36,8 @@ export function createBlogPost(data) {
 
   return {
     ...data,
+    authorImage: data.authorImage || null,
+    authorImageType: data.authorImageType || null,
     _id: new ObjectId(),
     createdAt: new Date(),
     updatedAt: new Date(),

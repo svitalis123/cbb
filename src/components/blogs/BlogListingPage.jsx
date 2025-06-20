@@ -114,21 +114,29 @@ const BlogListingPage = ({ initialBlogs }) => {
                       </p>
                       
                       <div className="flex items-center space-x-4 pt-4">
-                        <Avatar className="h-8 w-8 bg-[#3d3731] text-[#000]">
-                          <AvatarFallback>{getInitials(blog.author)}</AvatarFallback>
-                        </Avatar>
-                        
-                        <div className="flex flex-col">
-                          <span className="text-gray-100 text-sm">{blog.author}</span>
-                          <span className="text-gray-400 text-xs">
-                            {new Date(blog.publishDate).toLocaleDateString('en-US', {
-                              month: 'long',
-                              day: 'numeric',
-                              year: 'numeric'
-                            })}
-                          </span>
+                          {blog.authorImage ? (
+                            <img 
+                              src={blog.authorImage} 
+                              alt={blog.author}
+                              className="h-8 w-8 rounded-full object-cover border border-gray-600"
+                            />
+                          ) : (
+                            <Avatar className="h-8 w-8 bg-[#3d3731] text-[#000]">
+                              <AvatarFallback>{getInitials(blog.author)}</AvatarFallback>
+                            </Avatar>
+                          )}
+                          
+                          <div className="flex flex-col">
+                            <span className="text-gray-100 text-sm">{blog.author}</span>
+                            <span className="text-gray-400 text-xs">
+                              {new Date(blog.publishDate).toLocaleDateString('en-US', {
+                                month: 'long',
+                                day: 'numeric',
+                                year: 'numeric'
+                              })}
+                            </span>
+                          </div>
                         </div>
-                      </div>
                     </div>
                   </CardContent>
                 </Card>

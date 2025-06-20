@@ -68,6 +68,11 @@ const parseBlogContent = (htmlContent) => {
     return node.tagName === 'CODE' || node.tagName === 'PRE';
   };
 
+  // Add list detection
+  const isList = (node) => {
+    return ['UL', 'OL'].includes(node.tagName);
+  };
+
   const processNode = (node) => {
     if (isCodeBlock(node)) {
       return {
@@ -76,12 +81,23 @@ const parseBlogContent = (htmlContent) => {
         language: node.getAttribute('data-language') || 'bash'
       };
     }
+    
+    // Handle lists specifically
+    if (isList(node)) {
+      return {
+        type: 'list',
+        content: node.outerHTML,
+        listType: node.tagName.toLowerCase() // 'ul' or 'ol'
+      };
+    }
+    
     return {
       type: 'html',
       content: node.outerHTML
     };
   };
 
+  // Rest of the function remains the same...
   const createSection = (title) => {
     if (currentSection) {
       sections.push(currentSection);
@@ -153,6 +169,16 @@ const RenderIndividualBlog = ({ blogData }) => {
     if (content.type === 'code') {
       return <TerminalCodeBlock code={content.content} language={content.language} />;
     }
+    
+    if (content.type === 'list') {
+      return (
+        <div 
+          dangerouslySetInnerHTML={{ __html: content.content }} 
+          className="prose-content prose-lists"
+        />
+      );
+    }
+    
     return (
       <div 
         dangerouslySetInnerHTML={{ __html: content.content }} 
@@ -162,34 +188,114 @@ const RenderIndividualBlog = ({ blogData }) => {
   };
 
   const customStyles = `
-    .prose-content p {
-      margin-bottom: 1.5rem;
-      line-height: 1.7;
-    }
-    
-    .prose-content p:last-child {
-      margin-bottom: 0;
-    }
-    
-    .prose-content strong {
-      font-weight: 600;
-      color: #1f2937;
-    }
-    
-    .prose-content p strong:first-child {
-      display: inline-block;
-      margin-top: 1rem;
-    }
-    
-    .prose-content ul, .prose-content ol {
-      margin-bottom: 1.5rem;
-      line-height: 1.7;
-    }
-    
-    .prose-content li {
-      margin-bottom: 0.5rem;
-    }
-  `;
+  .prose-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+  }
+  
+  .prose-content p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .prose-content strong {
+    font-weight: 600;
+    color: #1f2937;
+  }
+  
+  .prose-content p strong:first-child {
+    display: inline-block;
+    margin-top: 1rem;
+  }
+  
+  /* Add comprehensive list styles */
+  .prose-content ul, .prose-content ol {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    padding-left: 1.5rem;
+  }
+  
+  .prose-content ul {
+    list-style-type: disc;
+  }
+  
+  .prose-content ol {
+    list-style-type: decimal;
+  }
+  
+  .prose-content ul ul {
+    list-style-type: circle;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .prose-content ol ol {
+    list-style-type: lower-alpha;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .prose-content ul ul ul {
+    list-style-type: square;
+  }
+  
+  .prose-content li {
+    margin-bottom: 0.5rem;
+    padding-left: 0.25rem;
+  }
+  
+  .prose-content li:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Nested list spacing */
+  .prose-content li > ul,
+  .prose-content li > ol {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+  }
+  
+  /* List item content */
+  .prose-content li p {
+    margin-bottom: 0.5rem;
+  }
+  
+  .prose-content li p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Ensure proper spacing for other elements */
+  .prose-content h1, .prose-content h2, .prose-content h3,
+  .prose-content h4, .prose-content h5, .prose-content h6 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  .prose-content blockquote {
+    margin: 1.5rem 0;
+    padding-left: 1rem;
+    border-left: 4px solid #e5e7eb;
+    font-style: italic;
+  }
+  
+  .prose-content table {
+    width: 100%;
+    margin: 1.5rem 0;
+    border-collapse: collapse;
+  }
+  
+  .prose-content th,
+  .prose-content td {
+    padding: 0.75rem;
+    border: 1px solid #e5e7eb;
+    text-align: left;
+  }
+  
+  .prose-content th {
+    background-color: #f9fafb;
+    font-weight: 600;
+  }
+`;
 
   return (
     <div className="min-h-screen bg-[#eef9ff]">
@@ -258,6 +364,32 @@ const RenderIndividualBlog = ({ blogData }) => {
           <main className="flex-1">
             <Card className="m-4 lg:m-0 bg-neutral-99 rounded-[32px] shadow-sm">
               <CardContent className="p-8">
+
+                {/* Author Info Section - Add this */}
+                <div className="flex items-center space-x-4 mb-8 pb-6 border-b border-gray-200">
+                  {blogData.authorImage ? (
+                    <img 
+                      src={blogData.authorImage} 
+                      alt={blogData.author}
+                      className="w-16 h-16 rounded-full object-cover border-2 border-gray-300"
+                    />
+                  ) : (
+                    <div className="w-16 h-16 rounded-full bg-primary-dark text-white flex items-center justify-center font-semibold text-lg">
+                      {blogData.author ? blogData.author.split(' ').map(n => n[0]).join('').toUpperCase() : 'A'}
+                    </div>
+                  )}
+                  <div>
+                    <h3 className="text-bodybold font-[600] text-neutral-800">{blogData.author}</h3>
+                    <p className="text-bodysmal text-neutral-500">
+                      Published on {new Date(blogData.publishDate).toLocaleDateString('en-US', {
+                        month: 'long',
+                        day: 'numeric', 
+                        year: 'numeric'
+                      })}
+                    </p>
+                  </div>
+                </div>
+
                 <div className="prose max-w-none">
                   {sections.map((section) => (
                     <section key={section.id} id={section.id} className="mb-16">
