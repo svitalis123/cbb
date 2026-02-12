@@ -1,19 +1,13 @@
-// middleware.ts
-import { withAuth } from "next-auth/middleware";
-import { NextResponse } from "next/server";
+import { auth } from "./auth"
+import { NextResponse } from "next/server"
 
-export default withAuth(
-  function middleware(req) {
-    // Add custom middleware logic here if needed
-    return NextResponse.next();
-  },
-  {
-    callbacks: {
-      authorized: ({ token }) => !!token, // Only allow authenticated users
-    },
+export default auth((req) => {
+  if (!req.auth && req.nextUrl.pathname.startsWith("/admin")) {
+    return NextResponse.redirect(new URL("/", req.nextUrl))
   }
-);
+  return NextResponse.next()
+})
 
 export const config = {
-  matcher: ["/admin/:path*"], // Protect all routes under /admin
-};
+  matcher: ["/admin/:path*"],
+}
