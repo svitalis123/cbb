@@ -27,13 +27,13 @@ const NotFoundPage = () => {
             </h2>
             
             <p className="text-gray-300 max-w-md mx-auto">
-              The page you're looking for seems to have wandered off into the digital wilderness. 
-              Don't worry though - we're here to help you find your way back!
+              The page you&apos;re looking for seems to have wandered off into the digital wilderness.
+              Don&apos;t worry though - we&apos;re here to help you find your way back!
             </p>
 
             {/* Suggestions Section */}
             <div className="bg-gray-900/50 rounded-lg p-6 mt-8">
-              <h3 className="text-white font-medium mb-4">Here's what you can do:</h3>
+              <h3 className="text-white font-medium mb-4">Here&apos;s what you can do:</h3>
               <ul className="text-gray-300 text-left space-y-3">
                 <li className="flex items-center gap-2">
                   <ArrowLeft className="h-4 w-4 text-purple-400" />
